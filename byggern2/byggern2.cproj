@@ -120,6 +120,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="sram.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="sram.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="test.c">
       <SubType>compile</SubType>
     </Compile>

@@ -13,8 +13,9 @@
 
 
 int main(void)
-{	
-	uart_test();
+{	uart_init(MYUBRR);
+	fdevopen(uart_write, uart_read);
+	SRAM_test();
 	
 }
 
