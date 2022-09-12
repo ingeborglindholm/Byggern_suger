@@ -10,12 +10,19 @@
 
 #include "uart.h"
 #include "test.h"
+#include "sram.h"
 
 
 int main(void)
 {	uart_init(MYUBRR);
 	fdevopen(uart_write, uart_read);
-	SRAM_test();
-	
+	/*xmem_init();
+	SRAM_test();*/
+	NAND_test();
+	//printf("Hei");
+	//uart_test();
+	//pina_test();
+	/*DDRA = 0x01;
+	PORTA = 0x01;*/
 }
 

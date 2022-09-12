@@ -67,6 +67,9 @@ void SRAM_test(void) {
 			printf("Write phase error: ext_ram[%4d] = %02X (should be %02X)\n", i, retreived_value, some_value);
 			write_errors++;
 		}
+		/*else{
+			printf("Success!: ext_ram[%4d] = %02X", i, retreived_value);
+		}*/
 	}
 	// Retrieval phase: Check that no values were changed during or after the write phase
 	srand(seed);
@@ -80,4 +83,28 @@ void SRAM_test(void) {
 		}
 	}
 	printf("SRAM test completed with \n%4d errors in write phase and \n%4d errors in retrieval phase\n\n", write_errors, retrieval_errors);
+}
+
+void NAND_test(void) {
+	// sette alle addresseutgangene, hele PORTA og PIN0-3 på PORTC til output
+	// PORTA
+	DDRA = 0xFF;		// setter alle PINs på PORTA til output
+	// PORTC
+	DDRC |= 0x0F;		// setter de 4 første PINs-ene på PORTC til output. Vet ikke hva disse JTAG greiene er, så bruker OR=
+	
+	// sette en eller annen adresse som er i adresseområdet vi vil teste
+	// PORTA er de 8 LSB og i disse tre eksemplene er de alle 0. Bare sett en av adressene av gangen
+	
+	// 0x1000 er OLED
+	/*PORTA = 0x00;
+	PORTC = 0x10;*/
+	// 0x1400 er ADC
+	PORTA = 0x00;
+	PORTC = 0x14;
+	// 0x1800 er SRAM
+	/*PORTA = 0x00;
+	PORTC = 0x18;* /*/
+	// mål så om CS-ene er lave??? det blir jo vanskelig hmmmmm --> dioder motsatt vei
+	
+	
 }

@@ -3,15 +3,16 @@
  *
  * Created: 08.09.2022 15:16:59
  *  Author: martge
-  
+ */
+ 
 
 #include "sram.h"
 
-#define BASE_ADDRESS 
+#define BASE_ADDRESS 0x1800
 
 void xmem_init ( void ){
 	MCUCR |= (1 << SRE ); // enable XMEM
-	SFIOR |= (1 << XMM0 ); // mask unused bits
+	SFIOR |= (1 << XMM2 ); // fjerner JTAG-bitsene fra external memory address, se side 32 i ATmega datablad
 }
 
 void xmem_write ( uint8_t data , uint16_t addr ){
@@ -24,4 +25,3 @@ uint8_t xmem_read (uint16_t addr ){
 	uint8_t ret_val = ext_mem [ addr ];
 	return ret_val ;
 }
-*/

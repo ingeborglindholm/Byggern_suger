@@ -21,3 +21,5 @@ void uart_test();
 void latch_test();
 
 void SRAM_test(void);
+
+void NAND_test(void);
