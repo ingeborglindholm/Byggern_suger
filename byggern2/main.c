@@ -11,6 +11,7 @@
 #include "uart.h"
 #include "test.h"
 #include "sram.h"
+#include "adc.h"
 
 
 int main(void)
@@ -18,11 +19,12 @@ int main(void)
 	fdevopen(uart_write, uart_read);
 	/*xmem_init();
 	SRAM_test();*/
-	NAND_test();
+	//NAND_test();
 	//printf("Hei");
 	//uart_test();
 	//pina_test();
 	/*DDRA = 0x01;
 	PORTA = 0x01;*/
+	adc_init();
 }
 

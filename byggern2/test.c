@@ -86,25 +86,27 @@ void SRAM_test(void) {
 }
 
 void NAND_test(void) {
-	// sette alle addresseutgangene, hele PORTA og PIN0-3 på PORTC til output
-	// PORTA
+
 	DDRA = 0xFF;		// setter alle PINs på PORTA til output
-	// PORTC
+
 	DDRC |= 0x0F;		// setter de 4 første PINs-ene på PORTC til output. Vet ikke hva disse JTAG greiene er, så bruker OR=
 	
-	// sette en eller annen adresse som er i adresseområdet vi vil teste
-	// PORTA er de 8 LSB og i disse tre eksemplene er de alle 0. Bare sett en av adressene av gangen
-	
-	// 0x1000 er OLED
-	/*PORTA = 0x00;
-	PORTC = 0x10;*/
-	// 0x1400 er ADC
+	//sette en adresse som er i adresseområdet vi vil teste
+	//PORTA er de 8 LSB og i disse tre eksemplene er de alle 0. Bare sett en av adressene av gangen
 	PORTA = 0x00;
+	// 0x1000 er OLED
+	//PORTC = 0x10;
+	
+	// 0x1400 er ADC
 	PORTC = 0x14;
+	
 	// 0x1800 er SRAM
-	/*PORTA = 0x00;
-	PORTC = 0x18;* /*/
-	// mål så om CS-ene er lave??? det blir jo vanskelig hmmmmm --> dioder motsatt vei
+	//PORTC = 0x18;
+	
+	/*PD6 = 1 (WR)
+	
+	
+	*/
 	
 	
 }
