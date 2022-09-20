@@ -8,8 +8,6 @@
 
 #include "sram.h"
 
-#define BASE_ADDRESS 0x1800
-
 void xmem_init ( void ){
 	MCUCR |= (1 << SRE ); // enable XMEM
 	SFIOR |= (1 << XMM2 ); // fjerner JTAG-bitsene fra external memory address, se side 32 i ATmega datablad
