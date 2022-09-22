@@ -9,9 +9,10 @@
 #include <avr/io.h>
 #include <stdio.h>
 
+#pragma once
 #include "xmem.h"
 
-enum Direction {LEFT=0, RIGHT=1, UP=2, DOWN=3, NEUTRAL=4, UNKNOWN= 5};
+enum Direction {LEFT=0, RIGHT=1, UP=2, DOWN=3, NEUTRAL=4};
 
 typedef struct  
 {

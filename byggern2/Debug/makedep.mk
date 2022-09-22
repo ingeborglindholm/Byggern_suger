@@ -4,6 +4,8 @@
 
 multifunction.c
 
+oled.c
+
 xmem.c
 
 test.c

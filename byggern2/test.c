@@ -27,21 +27,21 @@ void uart_test(){
 
 void latch_test(){
 	DDRA = 0x01;
-	DDRE |= 1 << DDE1;
+	PORTA = 0x01;
 	
-		PORTA = 0x01;
-		PORTE = 1 << PE1;
+	DDRE |= (1 << DDE1);
+	PORTE = 1 << PE1; //ALE
 	
-		_delay_ms(1000); 
+	_delay_ms(1000); 
 	
-		PORTE = 0; 
-		PORTA = 0x00;
+	PORTE = 0; 
+	PORTA = 0x00;
 		
-		_delay_ms(1000);
-		PORTA = 0x01; 
-		_delay_ms(1000);
-		PORTA = 0x00;
-		PORTE = 1 << PE1; 
+	_delay_ms(1000);
+	PORTA = 0x01; 
+	_delay_ms(1000);
+	PORTA = 0x00;
+	PORTE = 1 << PE1; 
 }
 
 void SRAM_test(void) {
@@ -94,4 +94,12 @@ void NAND_test(void) {
 	// 0x1800 er SRAM
 	//PORTC = 0x18;
 	
+}
+
+void test_multifunction(){
+	while(1){
+		joy_print_state();
+		print_slider_state();
+		_delay_ms(1000);
+	}
 }

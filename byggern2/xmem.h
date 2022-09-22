@@ -10,21 +10,24 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-
 #ifndef BASE_ADDRESS
 #define BASE_ADDRESS 0x1000
 #endif
 
 #ifndef ADDRESS_SRAM
-#define ADDRESS_SRAM 0x800
+#define ADDRESS_SRAM 0x1800
 #endif
 
 #ifndef ADDRESS_ADC
-#define ADDRESS_ADC 0x400
+#define ADDRESS_ADC 0x1400
 #endif
 
-#ifndef ADDRESS_OLED
-#define ADDRESS_OLED 0x200
+#ifndef ADDRESS_OLED_COMMAND
+#define ADDRESS_OLED_COMMAND 0x1000
+#endif
+
+#ifndef ADDRESS_OLED_DATA
+#define ADDRESS_OLED_DATA 0x1200
 #endif
 
 void xmem_init ( void );

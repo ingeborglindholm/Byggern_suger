@@ -11,18 +11,15 @@
 #include "uart.h"
 #include "test.h"
 #include "xmem.h"
-#include "multifunction.h"
+#include "oled.h"
 
 int main(void){
 	uart_init(MYUBRR);
-	
-	xmem_init();
+	xmem_init(); 
 	adc_init();
-	printf("Start: ");
 	
-	while(1){
-		joy_print_state();
-		print_slider_state();
-		_delay_ms(1000);
-	}
+	OLED_init();
+	OLED_reset();
+	OLED_print_char("B");
+	
 }

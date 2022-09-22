@@ -5,7 +5,6 @@
  *  Author: martge
  */ 
 
-
 #pragma once
 
 #include <avr/io.h>
@@ -13,6 +12,7 @@
 #include <util/delay.h>
 #include <stdio.h>
 #include "uart.h"
+#include "multifunction.h"
 
 void pina_test();
 
@@ -23,3 +23,5 @@ void latch_test();
 void SRAM_test(void);
 
 void NAND_test(void);
+
+void test_multifunction();
