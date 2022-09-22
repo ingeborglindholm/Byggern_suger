@@ -2,9 +2,9 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-adc.c
+multifunction.c
 
-sram.c
+xmem.c
 
 test.c
 

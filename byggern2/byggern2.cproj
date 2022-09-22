@@ -120,16 +120,16 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="adc.c">
+    <Compile Include="multifunction.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="adc.h">
+    <Compile Include="multifunction.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="sram.c">
+    <Compile Include="xmem.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="sram.h">
+    <Compile Include="xmem.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="test.c">

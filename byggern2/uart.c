@@ -20,6 +20,7 @@ void uart_init(unsigned int ubrr){
 	//UCSR0C = (1 << URSEL0)|(1<< USBS0)|(1 << UCSZ01)|(1 << UCSZ00); //Setter USBS0 -> 1 (2 stop bit), setter UCSZ2:0 -> 011 (8 bit data) [side 189 ATmega162/V]		
 	UCSR0C = (1 << URSEL0)|(1<< USBS0)|(3 << UCSZ00);
 	
+	fdevopen(uart_write, uart_read);
 }
 
 void uart_write(unsigned char letter){
