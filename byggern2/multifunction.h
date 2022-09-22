@@ -7,9 +7,11 @@
  */ 
 
 #include <avr/io.h>
+#include <stdio.h>
+
 #include "xmem.h"
 
-enum Direction {LEFT=0, RIGHT=1, UP=2, DOWN=3, NEUTRAL=4};
+enum Direction {LEFT=0, RIGHT=1, UP=2, DOWN=3, NEUTRAL=4, UNKNOWN= 5};
 
 typedef struct  
 {
@@ -35,4 +37,4 @@ typedef struct
 } ADC_output;
 
 
-void adc_init (void);ADC_output adc_read();void calibrate_joy_stick();int to_percent(uint8_t i);enum Direction joy_get_dir(int x, int y);Joy_state get_joy_state();void joy_print_state();Slider_state print_slider_state();
+void adc_init (void);ADC_output adc_read();void calibrate_joy_stick();int to_percent(uint8_t i);enum Direction joy_get_dir(int x, int y);Joy_state get_joy_state();void joy_print_state();void print_slider_state();

@@ -974,55 +974,55 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xe78
+.debug_info     0x00000000      0xe0f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_info    0x000005d0      0x4bc multifunction.o
- .debug_info    0x00000a8c      0x12b xmem.o
- .debug_info    0x00000bb7      0x11e uart.o
- .debug_info    0x00000cd5      0x1a3 main.o
+ .debug_info    0x000005d0      0x453 multifunction.o
+ .debug_info    0x00000a23      0x12b xmem.o
+ .debug_info    0x00000b4e      0x11e uart.o
+ .debug_info    0x00000c6c      0x1a3 main.o
 
-.debug_abbrev   0x00000000      0xa82
+.debug_abbrev   0x00000000      0xa39
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x580 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_abbrev  0x00000580      0x256 multifunction.o
- .debug_abbrev  0x000007d6       0xd1 xmem.o
- .debug_abbrev  0x000008a7       0xca uart.o
- .debug_abbrev  0x00000971      0x111 main.o
+ .debug_abbrev  0x00000580      0x20d multifunction.o
+ .debug_abbrev  0x0000078d       0xd1 xmem.o
+ .debug_abbrev  0x0000085e       0xca uart.o
+ .debug_abbrev  0x00000928      0x111 main.o
 
-.debug_line     0x00000000      0x77a
+.debug_line     0x00000000      0x783
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x140 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_line    0x00000140      0x2f6 multifunction.o
- .debug_line    0x00000436       0xd9 xmem.o
- .debug_line    0x0000050f       0xff uart.o
- .debug_line    0x0000060e      0x16c main.o
+ .debug_line    0x00000140      0x2ff multifunction.o
+ .debug_line    0x0000043f       0xd9 xmem.o
+ .debug_line    0x00000518       0xff uart.o
+ .debug_line    0x00000617      0x16c main.o
 
-.debug_frame    0x00000000      0x1d0
+.debug_frame    0x00000000      0x1cc
  *(.debug_frame)
- .debug_frame   0x00000000      0x118 multifunction.o
- .debug_frame   0x00000118       0x44 xmem.o
- .debug_frame   0x0000015c       0x44 uart.o
- .debug_frame   0x000001a0       0x30 main.o
+ .debug_frame   0x00000000      0x114 multifunction.o
+ .debug_frame   0x00000114       0x44 xmem.o
+ .debug_frame   0x00000158       0x44 uart.o
+ .debug_frame   0x0000019c       0x30 main.o
 
-.debug_str      0x00000000      0x5c5
+.debug_str      0x00000000      0x5b5
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_str     0x000001f6      0x2f1 multifunction.o
-                                0x330 (size before relaxing)
- .debug_str     0x000004e7       0x49 xmem.o
+ .debug_str     0x000001f6      0x2e1 multifunction.o
+                                0x320 (size before relaxing)
+ .debug_str     0x000004d7       0x49 xmem.o
                                 0x1b4 (size before relaxing)
- .debug_str     0x00000530       0x40 uart.o
+ .debug_str     0x00000520       0x40 uart.o
                                 0x1a1 (size before relaxing)
- .debug_str     0x00000570       0x55 main.o
+ .debug_str     0x00000560       0x55 main.o
                                 0x201 (size before relaxing)
 
-.debug_loc      0x00000000      0x44a
+.debug_loc      0x00000000      0x44b
  *(.debug_loc)
- .debug_loc     0x00000000      0x3b4 multifunction.o
- .debug_loc     0x000003b4       0x34 xmem.o
- .debug_loc     0x000003e8       0x26 uart.o
- .debug_loc     0x0000040e       0x3c main.o
+ .debug_loc     0x00000000      0x3b5 multifunction.o
+ .debug_loc     0x000003b5       0x34 xmem.o
+ .debug_loc     0x000003e9       0x26 uart.o
+ .debug_loc     0x0000040f       0x3c main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1042,12 +1042,12 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xb0
+.debug_ranges   0x00000000       0xb8
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x60 multifunction.o
- .debug_ranges  0x00000060       0x20 xmem.o
- .debug_ranges  0x00000080       0x20 uart.o
- .debug_ranges  0x000000a0       0x10 main.o
+ .debug_ranges  0x00000000       0x68 multifunction.o
+ .debug_ranges  0x00000068       0x20 xmem.o
+ .debug_ranges  0x00000088       0x20 uart.o
+ .debug_ranges  0x000000a8       0x10 main.o
 
 .debug_macro
  *(.debug_macro)

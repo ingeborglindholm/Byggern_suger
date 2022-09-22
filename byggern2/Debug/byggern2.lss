@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000000d8  00000000  00000000  00001488  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000e78  00000000  00000000  00001560  2**0
+  6 .debug_info   00000e0f  00000000  00000000  00001560  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000a82  00000000  00000000  000023d8  2**0
+  7 .debug_abbrev 00000a39  00000000  00000000  0000236f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000077a  00000000  00000000  00002e5a  2**0
+  8 .debug_line   00000783  00000000  00000000  00002da8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001d0  00000000  00000000  000035d4  2**2
+  9 .debug_frame  000001cc  00000000  00000000  0000352c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    000005c5  00000000  00000000  000037a4  2**0
+ 10 .debug_str    000005b5  00000000  00000000  000036f8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000044a  00000000  00000000  00003d69  2**0
+ 11 .debug_loc    0000044b  00000000  00000000  00003cad  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000b0  00000000  00000000  000041b3  2**0
+ 12 .debug_ranges 000000b8  00000000  00000000  000040f8  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -196,16 +196,16 @@ void calibrate_joy_stick(){
 	uint8_t x = adc_output.x_axis;
 	uint8_t y = adc_output.y_axis;
 	
-	uint8_t* x_pos_offset = (uint8_t)(BASE_ADDRESS + ADDRESS_SRAM + 4); 
+	uint8_t* x_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 4); 
 	*x_pos_offset = x;
-     134:	60 93 04 00 	sts	0x0004, r22	; 0x800004 <__TEXT_REGION_LENGTH__+0x7fc004>
-	uint8_t* y_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 8);
+     134:	60 93 04 18 	sts	0x1804, r22	; 0x801804 <__bss_end+0x16aa>
+	uint8_t* y_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 8);
 	*y_pos_offset = y;
      138:	70 93 08 18 	sts	0x1808, r23	; 0x801808 <__bss_end+0x16ae>
      13c:	08 95       	ret
 
 0000013e <adc_init>:
-#include <math.h>
+#include "multifunction.h"
 
 #define PI 3.14159265
 
@@ -270,10 +270,10 @@ void adc_init (void){
      188:	8f 7e       	andi	r24, 0xEF	; 239
      18a:	81 bb       	out	0x11, r24	; 17
 	
-	uint8_t* x_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 4); // Plusser på 4 fordi på denne minneadressen skal vi lagre en float, som tar opp 4 bytes, altså må vi ha 4 minneaddresser
+	uint8_t* x_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 4); // Plusser på 4 fordi på denne minneadressen skal vi lagre en float, som tar opp 4 bytes, altså må vi ha 4 minneaddresser
 	*x_pos_offset = 0;
      18c:	10 92 04 18 	sts	0x1804, r1	; 0x801804 <__bss_end+0x16aa>
-	uint8_t* y_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 8); 
+	uint8_t* y_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 8); 
 	*y_pos_offset = 0;
      190:	10 92 08 18 	sts	0x1808, r1	; 0x801808 <__bss_end+0x16ae>
 	
@@ -282,7 +282,7 @@ void adc_init (void){
      198:	08 95       	ret
 
 0000019a <joy_get_dir>:
-	uint8_t* y_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 8);
+	uint8_t* y_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 8);
 	*y_pos_offset = y;
 	
 }
@@ -296,208 +296,223 @@ enum Direction joy_get_dir(int x, int y){
      1a4:	df 92       	push	r13
      1a6:	ef 92       	push	r14
      1a8:	ff 92       	push	r15
-     1aa:	1f 93       	push	r17
-     1ac:	cf 93       	push	r28
-     1ae:	df 93       	push	r29
-     1b0:	ec 01       	movw	r28, r24
-     1b2:	7b 01       	movw	r14, r22
-	enum Direction dir;
+     1aa:	cf 93       	push	r28
+     1ac:	df 93       	push	r29
+     1ae:	ec 01       	movw	r28, r24
+     1b0:	7b 01       	movw	r14, r22
+	enum Direction dir = UNKNOWN;
 	
-	uint8_t* x_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 4);
-	uint8_t* y_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 8);
+	uint8_t* x_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 4);
+	uint8_t* y_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 8);
 	int x_offset_percent = to_percent(*x_pos_offset);
-     1b4:	80 91 04 18 	lds	r24, 0x1804	; 0x801804 <__bss_end+0x16aa>
-     1b8:	0e 94 7c 00 	call	0xf8	; 0xf8 <to_percent>
-     1bc:	6c 01       	movw	r12, r24
+     1b2:	80 91 04 18 	lds	r24, 0x1804	; 0x801804 <__bss_end+0x16aa>
+     1b6:	0e 94 7c 00 	call	0xf8	; 0xf8 <to_percent>
+     1ba:	6c 01       	movw	r12, r24
 	int y_offset_percent = to_percent(*y_pos_offset);
-     1be:	80 91 08 18 	lds	r24, 0x1808	; 0x801808 <__bss_end+0x16ae>
-     1c2:	0e 94 7c 00 	call	0xf8	; 0xf8 <to_percent>
+     1bc:	80 91 08 18 	lds	r24, 0x1808	; 0x801808 <__bss_end+0x16ae>
+     1c0:	0e 94 7c 00 	call	0xf8	; 0xf8 <to_percent>
 	
 	if (((x_offset_percent -5) < x && x < (x_offset_percent + 5)) && ((y_offset_percent - 5) < y && y < (y_offset_percent + 5))){
-     1c6:	96 01       	movw	r18, r12
-     1c8:	25 50       	subi	r18, 0x05	; 5
-     1ca:	31 09       	sbc	r19, r1
-     1cc:	2c 17       	cp	r18, r28
-     1ce:	3d 07       	cpc	r19, r29
-     1d0:	8c f4       	brge	.+34     	; 0x1f4 <joy_get_dir+0x5a>
-     1d2:	25 e0       	ldi	r18, 0x05	; 5
-     1d4:	c2 0e       	add	r12, r18
-     1d6:	d1 1c       	adc	r13, r1
-     1d8:	cc 15       	cp	r28, r12
-     1da:	dd 05       	cpc	r29, r13
-     1dc:	5c f4       	brge	.+22     	; 0x1f4 <joy_get_dir+0x5a>
-     1de:	9c 01       	movw	r18, r24
-     1e0:	25 50       	subi	r18, 0x05	; 5
-     1e2:	31 09       	sbc	r19, r1
-     1e4:	2e 15       	cp	r18, r14
-     1e6:	3f 05       	cpc	r19, r15
-     1e8:	2c f4       	brge	.+10     	; 0x1f4 <joy_get_dir+0x5a>
-     1ea:	05 96       	adiw	r24, 0x05	; 5
-     1ec:	e8 16       	cp	r14, r24
-     1ee:	f9 06       	cpc	r15, r25
-     1f0:	0c f4       	brge	.+2      	; 0x1f4 <joy_get_dir+0x5a>
-     1f2:	79 c0       	rjmp	.+242    	; 0x2e6 <__EEPROM_REGION_LENGTH__+0xe6>
+     1c4:	96 01       	movw	r18, r12
+     1c6:	25 50       	subi	r18, 0x05	; 5
+     1c8:	31 09       	sbc	r19, r1
+     1ca:	2c 17       	cp	r18, r28
+     1cc:	3d 07       	cpc	r19, r29
+     1ce:	8c f4       	brge	.+34     	; 0x1f2 <joy_get_dir+0x58>
+     1d0:	25 e0       	ldi	r18, 0x05	; 5
+     1d2:	c2 0e       	add	r12, r18
+     1d4:	d1 1c       	adc	r13, r1
+     1d6:	cc 15       	cp	r28, r12
+     1d8:	dd 05       	cpc	r29, r13
+     1da:	5c f4       	brge	.+22     	; 0x1f2 <joy_get_dir+0x58>
+     1dc:	9c 01       	movw	r18, r24
+     1de:	25 50       	subi	r18, 0x05	; 5
+     1e0:	31 09       	sbc	r19, r1
+     1e2:	2e 15       	cp	r18, r14
+     1e4:	3f 05       	cpc	r19, r15
+     1e6:	2c f4       	brge	.+10     	; 0x1f2 <joy_get_dir+0x58>
+     1e8:	05 96       	adiw	r24, 0x05	; 5
+     1ea:	e8 16       	cp	r14, r24
+     1ec:	f9 06       	cpc	r15, r25
+     1ee:	0c f4       	brge	.+2      	; 0x1f2 <joy_get_dir+0x58>
+     1f0:	7a c0       	rjmp	.+244    	; 0x2e6 <__EEPROM_REGION_LENGTH__+0xe6>
 		dir = NEUTRAL;
 	} else{
 		double angle = atan2((double) y, (double) x);
-     1f4:	be 01       	movw	r22, r28
-     1f6:	dd 0f       	add	r29, r29
-     1f8:	88 0b       	sbc	r24, r24
-     1fa:	99 0b       	sbc	r25, r25
-     1fc:	0e 94 be 03 	call	0x77c	; 0x77c <__floatsisf>
-     200:	4b 01       	movw	r8, r22
-     202:	5c 01       	movw	r10, r24
-     204:	b7 01       	movw	r22, r14
-     206:	ff 0c       	add	r15, r15
-     208:	88 0b       	sbc	r24, r24
-     20a:	99 0b       	sbc	r25, r25
-     20c:	0e 94 be 03 	call	0x77c	; 0x77c <__floatsisf>
-     210:	a5 01       	movw	r20, r10
-     212:	94 01       	movw	r18, r8
-     214:	0e 94 b4 02 	call	0x568	; 0x568 <atan2>
-     218:	6b 01       	movw	r12, r22
-     21a:	7c 01       	movw	r14, r24
+     1f2:	be 01       	movw	r22, r28
+     1f4:	dd 0f       	add	r29, r29
+     1f6:	88 0b       	sbc	r24, r24
+     1f8:	99 0b       	sbc	r25, r25
+     1fa:	0e 94 be 03 	call	0x77c	; 0x77c <__floatsisf>
+     1fe:	4b 01       	movw	r8, r22
+     200:	5c 01       	movw	r10, r24
+     202:	b7 01       	movw	r22, r14
+     204:	ff 0c       	add	r15, r15
+     206:	88 0b       	sbc	r24, r24
+     208:	99 0b       	sbc	r25, r25
+     20a:	0e 94 be 03 	call	0x77c	; 0x77c <__floatsisf>
+     20e:	a5 01       	movw	r20, r10
+     210:	94 01       	movw	r18, r8
+     212:	0e 94 b4 02 	call	0x568	; 0x568 <atan2>
+     216:	6b 01       	movw	r12, r22
+     218:	7c 01       	movw	r14, r24
 		
 		if (angle > PI/4 && angle <= 3*PI/4){
-     21c:	2b ed       	ldi	r18, 0xDB	; 219
-     21e:	3f e0       	ldi	r19, 0x0F	; 15
-     220:	49 e4       	ldi	r20, 0x49	; 73
-     222:	5f e3       	ldi	r21, 0x3F	; 63
-     224:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
-     228:	18 16       	cp	r1, r24
-     22a:	5c f4       	brge	.+22     	; 0x242 <__EEPROM_REGION_LENGTH__+0x42>
-     22c:	24 ee       	ldi	r18, 0xE4	; 228
-     22e:	3b ec       	ldi	r19, 0xCB	; 203
-     230:	46 e1       	ldi	r20, 0x16	; 22
-     232:	50 e4       	ldi	r21, 0x40	; 64
-     234:	c7 01       	movw	r24, r14
-     236:	b6 01       	movw	r22, r12
-     238:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
-     23c:	18 16       	cp	r1, r24
-     23e:	0c f0       	brlt	.+2      	; 0x242 <__EEPROM_REGION_LENGTH__+0x42>
-     240:	54 c0       	rjmp	.+168    	; 0x2ea <__EEPROM_REGION_LENGTH__+0xea>
+     21a:	2b ed       	ldi	r18, 0xDB	; 219
+     21c:	3f e0       	ldi	r19, 0x0F	; 15
+     21e:	49 e4       	ldi	r20, 0x49	; 73
+     220:	5f e3       	ldi	r21, 0x3F	; 63
+     222:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
+     226:	18 16       	cp	r1, r24
+     228:	5c f4       	brge	.+22     	; 0x240 <__EEPROM_REGION_LENGTH__+0x40>
+     22a:	24 ee       	ldi	r18, 0xE4	; 228
+     22c:	3b ec       	ldi	r19, 0xCB	; 203
+     22e:	46 e1       	ldi	r20, 0x16	; 22
+     230:	50 e4       	ldi	r21, 0x40	; 64
+     232:	c7 01       	movw	r24, r14
+     234:	b6 01       	movw	r22, r12
+     236:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
+     23a:	18 16       	cp	r1, r24
+     23c:	0c f0       	brlt	.+2      	; 0x240 <__EEPROM_REGION_LENGTH__+0x40>
+     23e:	55 c0       	rjmp	.+170    	; 0x2ea <__EEPROM_REGION_LENGTH__+0xea>
 			dir = UP;
 		}
 		else if ((angle > 3*PI/4 && angle <= PI) || (angle <= -3*PI/4 && angle > -PI)){
-     242:	24 ee       	ldi	r18, 0xE4	; 228
-     244:	3b ec       	ldi	r19, 0xCB	; 203
-     246:	46 e1       	ldi	r20, 0x16	; 22
-     248:	50 e4       	ldi	r21, 0x40	; 64
-     24a:	c7 01       	movw	r24, r14
-     24c:	b6 01       	movw	r22, r12
-     24e:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
-     252:	18 16       	cp	r1, r24
-     254:	5c f4       	brge	.+22     	; 0x26c <__EEPROM_REGION_LENGTH__+0x6c>
-     256:	2b ed       	ldi	r18, 0xDB	; 219
-     258:	3f e0       	ldi	r19, 0x0F	; 15
-     25a:	49 e4       	ldi	r20, 0x49	; 73
-     25c:	50 e4       	ldi	r21, 0x40	; 64
-     25e:	c7 01       	movw	r24, r14
-     260:	b6 01       	movw	r22, r12
-     262:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
-     266:	18 16       	cp	r1, r24
-     268:	0c f0       	brlt	.+2      	; 0x26c <__EEPROM_REGION_LENGTH__+0x6c>
-     26a:	41 c0       	rjmp	.+130    	; 0x2ee <__EEPROM_REGION_LENGTH__+0xee>
-     26c:	24 ee       	ldi	r18, 0xE4	; 228
-     26e:	3b ec       	ldi	r19, 0xCB	; 203
-     270:	46 e1       	ldi	r20, 0x16	; 22
-     272:	50 ec       	ldi	r21, 0xC0	; 192
-     274:	c7 01       	movw	r24, r14
-     276:	b6 01       	movw	r22, r12
-     278:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
-     27c:	18 16       	cp	r1, r24
-     27e:	54 f0       	brlt	.+20     	; 0x294 <__EEPROM_REGION_LENGTH__+0x94>
-     280:	2b ed       	ldi	r18, 0xDB	; 219
-     282:	3f e0       	ldi	r19, 0x0F	; 15
-     284:	49 e4       	ldi	r20, 0x49	; 73
-     286:	50 ec       	ldi	r21, 0xC0	; 192
-     288:	c7 01       	movw	r24, r14
-     28a:	b6 01       	movw	r22, r12
-     28c:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
-     290:	18 16       	cp	r1, r24
-     292:	7c f1       	brlt	.+94     	; 0x2f2 <__EEPROM_REGION_LENGTH__+0xf2>
+     240:	24 ee       	ldi	r18, 0xE4	; 228
+     242:	3b ec       	ldi	r19, 0xCB	; 203
+     244:	46 e1       	ldi	r20, 0x16	; 22
+     246:	50 e4       	ldi	r21, 0x40	; 64
+     248:	c7 01       	movw	r24, r14
+     24a:	b6 01       	movw	r22, r12
+     24c:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
+     250:	18 16       	cp	r1, r24
+     252:	5c f4       	brge	.+22     	; 0x26a <__EEPROM_REGION_LENGTH__+0x6a>
+     254:	2b ed       	ldi	r18, 0xDB	; 219
+     256:	3f e0       	ldi	r19, 0x0F	; 15
+     258:	49 e4       	ldi	r20, 0x49	; 73
+     25a:	50 e4       	ldi	r21, 0x40	; 64
+     25c:	c7 01       	movw	r24, r14
+     25e:	b6 01       	movw	r22, r12
+     260:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
+     264:	18 16       	cp	r1, r24
+     266:	0c f0       	brlt	.+2      	; 0x26a <__EEPROM_REGION_LENGTH__+0x6a>
+     268:	42 c0       	rjmp	.+132    	; 0x2ee <__EEPROM_REGION_LENGTH__+0xee>
+     26a:	24 ee       	ldi	r18, 0xE4	; 228
+     26c:	3b ec       	ldi	r19, 0xCB	; 203
+     26e:	46 e1       	ldi	r20, 0x16	; 22
+     270:	50 ec       	ldi	r21, 0xC0	; 192
+     272:	c7 01       	movw	r24, r14
+     274:	b6 01       	movw	r22, r12
+     276:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
+     27a:	18 16       	cp	r1, r24
+     27c:	54 f0       	brlt	.+20     	; 0x292 <__EEPROM_REGION_LENGTH__+0x92>
+     27e:	2b ed       	ldi	r18, 0xDB	; 219
+     280:	3f e0       	ldi	r19, 0x0F	; 15
+     282:	49 e4       	ldi	r20, 0x49	; 73
+     284:	50 ec       	ldi	r21, 0xC0	; 192
+     286:	c7 01       	movw	r24, r14
+     288:	b6 01       	movw	r22, r12
+     28a:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
+     28e:	18 16       	cp	r1, r24
+     290:	84 f1       	brlt	.+96     	; 0x2f2 <__EEPROM_REGION_LENGTH__+0xf2>
 			dir = LEFT;
 		}
 		else if (angle > -3*PI/4 &&  angle <= -PI/4 ){
-     294:	24 ee       	ldi	r18, 0xE4	; 228
-     296:	3b ec       	ldi	r19, 0xCB	; 203
-     298:	46 e1       	ldi	r20, 0x16	; 22
-     29a:	50 ec       	ldi	r21, 0xC0	; 192
-     29c:	c7 01       	movw	r24, r14
-     29e:	b6 01       	movw	r22, r12
-     2a0:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
-     2a4:	18 16       	cp	r1, r24
-     2a6:	54 f4       	brge	.+20     	; 0x2bc <__EEPROM_REGION_LENGTH__+0xbc>
-     2a8:	2b ed       	ldi	r18, 0xDB	; 219
-     2aa:	3f e0       	ldi	r19, 0x0F	; 15
-     2ac:	49 e4       	ldi	r20, 0x49	; 73
-     2ae:	5f eb       	ldi	r21, 0xBF	; 191
-     2b0:	c7 01       	movw	r24, r14
-     2b2:	b6 01       	movw	r22, r12
-     2b4:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
-     2b8:	18 16       	cp	r1, r24
-     2ba:	ec f4       	brge	.+58     	; 0x2f6 <__EEPROM_REGION_LENGTH__+0xf6>
+     292:	24 ee       	ldi	r18, 0xE4	; 228
+     294:	3b ec       	ldi	r19, 0xCB	; 203
+     296:	46 e1       	ldi	r20, 0x16	; 22
+     298:	50 ec       	ldi	r21, 0xC0	; 192
+     29a:	c7 01       	movw	r24, r14
+     29c:	b6 01       	movw	r22, r12
+     29e:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
+     2a2:	18 16       	cp	r1, r24
+     2a4:	54 f4       	brge	.+20     	; 0x2ba <__EEPROM_REGION_LENGTH__+0xba>
+     2a6:	2b ed       	ldi	r18, 0xDB	; 219
+     2a8:	3f e0       	ldi	r19, 0x0F	; 15
+     2aa:	49 e4       	ldi	r20, 0x49	; 73
+     2ac:	5f eb       	ldi	r21, 0xBF	; 191
+     2ae:	c7 01       	movw	r24, r14
+     2b0:	b6 01       	movw	r22, r12
+     2b2:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
+     2b6:	18 16       	cp	r1, r24
+     2b8:	f4 f4       	brge	.+60     	; 0x2f6 <__EEPROM_REGION_LENGTH__+0xf6>
 			dir = DOWN;
 		}
 		else if (angle > -PI/4 && angle <= PI/4){
-     2bc:	2b ed       	ldi	r18, 0xDB	; 219
-     2be:	3f e0       	ldi	r19, 0x0F	; 15
-     2c0:	49 e4       	ldi	r20, 0x49	; 73
-     2c2:	5f eb       	ldi	r21, 0xBF	; 191
-     2c4:	c7 01       	movw	r24, r14
-     2c6:	b6 01       	movw	r22, r12
-     2c8:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
-     2cc:	18 16       	cp	r1, r24
-     2ce:	b4 f4       	brge	.+44     	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
-     2d0:	2b ed       	ldi	r18, 0xDB	; 219
-     2d2:	3f e0       	ldi	r19, 0x0F	; 15
-     2d4:	49 e4       	ldi	r20, 0x49	; 73
-     2d6:	5f e3       	ldi	r21, 0x3F	; 63
-     2d8:	c7 01       	movw	r24, r14
-     2da:	b6 01       	movw	r22, r12
-     2dc:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
-     2e0:	18 16       	cp	r1, r24
-     2e2:	5c f4       	brge	.+22     	; 0x2fa <__EEPROM_REGION_LENGTH__+0xfa>
-     2e4:	0b c0       	rjmp	.+22     	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
-	uint8_t* y_pos_offset = (BASE_ADDRESS + ADDRESS_SRAM + 8);
+     2ba:	2b ed       	ldi	r18, 0xDB	; 219
+     2bc:	3f e0       	ldi	r19, 0x0F	; 15
+     2be:	49 e4       	ldi	r20, 0x49	; 73
+     2c0:	5f eb       	ldi	r21, 0xBF	; 191
+     2c2:	c7 01       	movw	r24, r14
+     2c4:	b6 01       	movw	r22, r12
+     2c6:	0e 94 95 04 	call	0x92a	; 0x92a <__gesf2>
+     2ca:	18 16       	cp	r1, r24
+     2cc:	b4 f4       	brge	.+44     	; 0x2fa <__EEPROM_REGION_LENGTH__+0xfa>
+     2ce:	2b ed       	ldi	r18, 0xDB	; 219
+     2d0:	3f e0       	ldi	r19, 0x0F	; 15
+     2d2:	49 e4       	ldi	r20, 0x49	; 73
+     2d4:	5f e3       	ldi	r21, 0x3F	; 63
+     2d6:	c7 01       	movw	r24, r14
+     2d8:	b6 01       	movw	r22, r12
+     2da:	0e 94 13 03 	call	0x626	; 0x626 <__cmpsf2>
+     2de:	18 16       	cp	r1, r24
+     2e0:	74 f4       	brge	.+28     	; 0x2fe <__EEPROM_REGION_LENGTH__+0xfe>
+	*y_pos_offset = y;
+	
+}
+
+enum Direction joy_get_dir(int x, int y){
+	enum Direction dir = UNKNOWN;
+     2e2:	85 e0       	ldi	r24, 0x05	; 5
+     2e4:	0d c0       	rjmp	.+26     	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
+	uint8_t* y_pos_offset = (uint8_t *) (BASE_ADDRESS + ADDRESS_SRAM + 8);
 	int x_offset_percent = to_percent(*x_pos_offset);
 	int y_offset_percent = to_percent(*y_pos_offset);
 	
 	if (((x_offset_percent -5) < x && x < (x_offset_percent + 5)) && ((y_offset_percent - 5) < y && y < (y_offset_percent + 5))){
 		dir = NEUTRAL;
-     2e6:	14 e0       	ldi	r17, 0x04	; 4
-     2e8:	09 c0       	rjmp	.+18     	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
+     2e6:	84 e0       	ldi	r24, 0x04	; 4
+     2e8:	0b c0       	rjmp	.+22     	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
 	} else{
 		double angle = atan2((double) y, (double) x);
 		
 		if (angle > PI/4 && angle <= 3*PI/4){
 			dir = UP;
-     2ea:	12 e0       	ldi	r17, 0x02	; 2
-     2ec:	07 c0       	rjmp	.+14     	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
+     2ea:	82 e0       	ldi	r24, 0x02	; 2
+     2ec:	09 c0       	rjmp	.+18     	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
 		}
 		else if ((angle > 3*PI/4 && angle <= PI) || (angle <= -3*PI/4 && angle > -PI)){
 			dir = LEFT;
-     2ee:	10 e0       	ldi	r17, 0x00	; 0
-     2f0:	05 c0       	rjmp	.+10     	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
-     2f2:	10 e0       	ldi	r17, 0x00	; 0
-     2f4:	03 c0       	rjmp	.+6      	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
+     2ee:	80 e0       	ldi	r24, 0x00	; 0
+     2f0:	07 c0       	rjmp	.+14     	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
+     2f2:	80 e0       	ldi	r24, 0x00	; 0
+     2f4:	05 c0       	rjmp	.+10     	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
 		}
 		else if (angle > -3*PI/4 &&  angle <= -PI/4 ){
 			dir = DOWN;
-     2f6:	13 e0       	ldi	r17, 0x03	; 3
-     2f8:	01 c0       	rjmp	.+2      	; 0x2fc <__EEPROM_REGION_LENGTH__+0xfc>
+     2f6:	83 e0       	ldi	r24, 0x03	; 3
+     2f8:	03 c0       	rjmp	.+6      	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
+	*y_pos_offset = y;
+	
+}
+
+enum Direction joy_get_dir(int x, int y){
+	enum Direction dir = UNKNOWN;
+     2fa:	85 e0       	ldi	r24, 0x05	; 5
+     2fc:	01 c0       	rjmp	.+2      	; 0x300 <__EEPROM_REGION_LENGTH__+0x100>
+		}
+		else if (angle > -3*PI/4 &&  angle <= -PI/4 ){
+			dir = DOWN;
 		}
 		else if (angle > -PI/4 && angle <= PI/4){
 			dir = RIGHT;
-     2fa:	11 e0       	ldi	r17, 0x01	; 1
+     2fe:	81 e0       	ldi	r24, 0x01	; 1
 		}
 	}
 	return dir;
 }
-     2fc:	81 2f       	mov	r24, r17
-     2fe:	df 91       	pop	r29
-     300:	cf 91       	pop	r28
-     302:	1f 91       	pop	r17
+     300:	df 91       	pop	r29
+     302:	cf 91       	pop	r28
      304:	ff 90       	pop	r15
      306:	ef 90       	pop	r14
      308:	df 90       	pop	r13
@@ -615,7 +630,7 @@ void joy_print_state() {
 
 000003ce <print_slider_state>:
 
-Slider_state print_slider_state(){
+void print_slider_state(){
 	ADC_output adc_output = adc_read();
      3ce:	0e 94 6e 00 	call	0xdc	; 0xdc <adc_read>
 	printf("Left slider: %d, right slider: %d \n", adc_output.left_slider, adc_output.right_slider);

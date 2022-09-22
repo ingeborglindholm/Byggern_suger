@@ -13,7 +13,6 @@
 #include "xmem.h"
 #include "multifunction.h"
 
-
 int main(void){
 	uart_init(MYUBRR);
 	

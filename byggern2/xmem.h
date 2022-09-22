@@ -6,6 +6,11 @@
  */ 
 #pragma once
 
+#include <avr/io.h>
+#include <stdint.h>
+#include <stdlib.h>
+
+
 #ifndef BASE_ADDRESS
 #define BASE_ADDRESS 0x1000
 #endif
@@ -21,11 +26,6 @@
 #ifndef ADDRESS_OLED
 #define ADDRESS_OLED 0x200
 #endif
-
-
-#include <avr/io.h>
-#include <stdint.h>
-#include <stdlib.h>
 
 void xmem_init ( void );
 

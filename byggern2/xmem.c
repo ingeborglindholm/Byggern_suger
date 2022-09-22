@@ -5,7 +5,6 @@
  *  Author: martge
  */
  
-
 #include "xmem.h"
 
 void xmem_init ( void ){
