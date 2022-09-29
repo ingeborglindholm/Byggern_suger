@@ -147,10 +147,22 @@
     <Compile Include="fonts.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="menu.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="menu.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="multifunction.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="multifunction.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="user_interface.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="user_interface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="oled.c">

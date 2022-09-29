@@ -7,10 +7,12 @@
 
 #pragma once
 
-#include <avr/io.h>
 #define F_CPU 4.9152E6
+
+#include <avr/io.h>
 #include <util/delay.h>
 #include <stdio.h>
+
 #include "uart.h"
 #include "multifunction.h"
 

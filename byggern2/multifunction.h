@@ -2,40 +2,16 @@
 /*
  * multifunction.h
  *
- * Created: 15.09.2022 12:46:03
+ * Created: 29.09.2022 13:51:59
  *  Author: ingebobl
  */ 
 
-#include <avr/io.h>
-#include <stdio.h>
-
 #pragma once
-#include "xmem.h"
 
-enum Direction {LEFT=0, RIGHT=1, UP=2, DOWN=3, NEUTRAL=4};
+#include "user_interface.h"
+#include "oled.h"
+#include "menu.h"
 
-typedef struct  
-{
-	int x_percent;
-	int y_percent;
-	enum Direction dir;
-}Joy_state;
+#include <avr/io.h>
 
-
-typedef struct  
-{
-	int left;
-	int right;
-} Slider_state;
-
-
-typedef struct  
-{
-	uint8_t x_axis;
-	uint8_t y_axis;
-	uint8_t right_slider;
-	uint8_t left_slider;
-} ADC_output;
-
-
-void adc_init (void);ADC_output adc_read();void calibrate_joy_stick();int to_percent(uint8_t i);enum Direction joy_get_dir(int x, int y);Joy_state get_joy_state();void joy_print_state();void print_slider_state();
+void multifunction_init();
