@@ -12,7 +12,7 @@
 #include <stdio.h>
 #include <math.h>
 
-#include "xmem.h"
+#include "../xmem.h"
 
 #define PI 3.14159265
 

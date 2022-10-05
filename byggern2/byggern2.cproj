@@ -144,31 +144,49 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CAN_controller\can_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_controller\can_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_controller\mcp2515_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_controller\mcp2515_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_controller\spi_driver.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="CAN_controller\spi_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="fonts.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="menu.c">
+    <Compile Include="Multifunc_board\menu.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="menu.h">
+    <Compile Include="Multifunc_board\menu.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="multifunction.c">
+    <Compile Include="Multifunc_board\multifunction.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="multifunction.h">
+    <Compile Include="Multifunc_board\multifunction.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="user_interface.c">
+    <Compile Include="Multifunc_board\oled.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="user_interface.h">
+    <Compile Include="Multifunc_board\oled.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="oled.c">
+    <Compile Include="Multifunc_board\user_interface.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="oled.h">
+    <Compile Include="Multifunc_board\user_interface.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="xmem.c">
@@ -192,6 +210,10 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CAN_controller\" />
+    <Folder Include="Multifunc_board" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

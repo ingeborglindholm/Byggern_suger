@@ -8,23 +8,11 @@
 
 #include "menu.h"
 
-/*
-Menu tabata_menu = {
-	.choices = {"Tabataka boom", "Tabtata", "Tabayta", "Tabratata", "Feliz Tabatad"},
-	.length = 5
-};*/
-
-
-
 int arrow_page = 1; 
 
 void menu_init(Menu menu_x){
-	
-	
-	
 	OLED_init();
 	OLED_reset();
-	printf("length: %d", menu_x.length);
 	for (int i = 0; i < menu_x.length; i++){
 		OLED_pos(i, 16);
 		OLED_print_string(menu_x.choices[i]);

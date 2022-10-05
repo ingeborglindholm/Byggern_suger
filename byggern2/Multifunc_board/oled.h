@@ -11,8 +11,8 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "xmem.h"
-#include "uart.h"
+#include "../xmem.h"
+#include "../uart.h"
 
 //#define FDEV_SETUP_STREAM(, , _FDEV_SETUP_READ)
 

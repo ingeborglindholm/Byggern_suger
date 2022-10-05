@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 #include "uart.h"
-#include "multifunction.h"
+#include "Multifunc_board/multifunction.h"
 
 void pina_test();
 

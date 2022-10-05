@@ -7,7 +7,7 @@
  */ 
 
 #include "oled.h"
-#include "fonts.h"
+#include "../fonts.h"
 
 void OLED_write_command(uint8_t cmd){
 	volatile uint8_t *memory = (uint8_t *)0;

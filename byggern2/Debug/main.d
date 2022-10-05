@@ -17,11 +17,12 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././multifunction.h .././user_interface.h .././xmem.h \
+ .././Multifunc_board/multifunction.h \
+ .././Multifunc_board/user_interface.h .././Multifunc_board/../xmem.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- .././oled.h \
+ .././Multifunc_board/oled.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././menu.h
+ .././Multifunc_board/menu.h .././CAN_controller/spi_driver.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -61,16 +62,18 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././multifunction.h:
+.././Multifunc_board/multifunction.h:
 
-.././user_interface.h:
+.././Multifunc_board/user_interface.h:
 
-.././xmem.h:
+.././Multifunc_board/../xmem.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-.././oled.h:
+.././Multifunc_board/oled.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-.././menu.h:
+.././Multifunc_board/menu.h:
+
+.././CAN_controller/spi_driver.h:
