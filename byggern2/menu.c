@@ -8,22 +8,23 @@
 
 #include "menu.h"
 
-menu main_menu = {
-	.choices = {"* Menu *", "Valg 1", "Valg 2", "Tabata", "x", "x", "x", "y"},
-	.length = 8
-};
-menu tabata_menu = {
+/*
+Menu tabata_menu = {
 	.choices = {"Tabataka boom", "Tabtata", "Tabayta", "Tabratata", "Feliz Tabatad"},
 	.length = 5
-};
+};*/
 
-menu current_menu = main_menu;
+
+
 int arrow_page = 1; 
 
-
-void menu_init(menu menu_x){
+void menu_init(Menu menu_x){
+	
+	
+	
 	OLED_init();
 	OLED_reset();
+	printf("length: %d", menu_x.length);
 	for (int i = 0; i < menu_x.length; i++){
 		OLED_pos(i, 16);
 		OLED_print_string(menu_x.choices[i]);

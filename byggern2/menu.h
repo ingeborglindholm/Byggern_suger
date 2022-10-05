@@ -12,21 +12,23 @@
 #include "user_interface.h"
 
 typedef struct{
-	char choices[8][16] = {"* Menu *", "Langtur", "Intervall", "Tabata", "x", "x", "x", "y"};
-	int length = 8;
-	}menu;
+	char choices[8][16];
+	int length;
+	} Menu;
+
+
 
 typedef enum{
 	PAGE0, PAGE1, PAGE2, PAGE3, PAGE4, PAGE5, PAGE6, PAGE7,
 	}page;
 
-void menu_init();
+void menu_init(Menu menu_x);
 
 void update_arrow();
 
 int get_menu_choice();
 
-int void update_current_menu(page current_page); 
+void update_current_menu(page current_page); 
 
 /*
 enum med pages 

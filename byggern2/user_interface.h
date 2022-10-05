@@ -23,7 +23,7 @@ typedef struct
 	int x_percent;
 	int y_percent;
 	enum Direction dir;
-}Joy_state;
+} Joy_state;
 
 
 typedef struct  

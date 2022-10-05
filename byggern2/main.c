@@ -18,17 +18,18 @@
 int main(void){
 	uart_init(MYUBRR);
 	xmem_init(); 
-	multifunction_init();
 	
+	
+	
+	
+	multifunction_init();
 	printf("Start test: ");
 	while (1){
-		_delay_ms(1000);
+		_delay_ms(100);
 		update_arrow();
 		
-		printf("Port B: %d", PINB);
-		
 		if (joy_btn_pressed()){
-			printf("Menu choice: %d", get_menu_choice());
+			printf("Menu choice: %d\n", get_menu_choice());
 		}
 	}
 	

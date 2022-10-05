@@ -19,5 +19,14 @@ void multifunction_init(){
 	//Legge til initialisering av sliderknappene
 	
 	OLED_init();
-	menu_init();
+	
+	Menu main_menu = {
+		{"* Menu *", "Valg 1", "Valg 2", "Tabata", "x", "x", "x", "y"},
+		8
+	};
+	
+	Menu current_menu = main_menu;
+	
+	
+	menu_init(main_menu);
 }
