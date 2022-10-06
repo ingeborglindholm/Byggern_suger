@@ -20,7 +20,7 @@ int main(void){
 	xmem_init(); 
 	
 	multifunction_init();
-	printf("Start test: ");
+	printf("Start test: \n");
 	/*
 	while (1){
 		_delay_ms(100);
@@ -30,22 +30,13 @@ int main(void){
 			printf("Menu choice: %d\n", get_menu_choice());
 		}
 	}	
-*/
+	*/
 	SPI_init();
-	
-	SPI_send(0b01010101);
-	SPI_send(0b11111111);
-	uint8_t x = SPDR;
-	//uint8_t x = SPI_read();
-	printf("whiiiio");
-	printf("Look at this: %d", x);
-	
-	
+	while(1){
+		SPI_send(0b01010101);
+		//SPI_send(0b11111111);
+		//uint8_t x = SPDR;
+		uint8_t x = SPI_read();
+		//printf("Look at this: %d\n", x);
 	}
-
-/*
-- SPI mode 0, settes i atmega 
-
-
-
-*/
+}

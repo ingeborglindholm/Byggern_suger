@@ -9,6 +9,8 @@
 #ifndef __MCP2515_H
 #define __MCP2515_H
 
+#include "spi_driver.h"
+
 /*
 mcp2515.h
 
@@ -66,6 +68,19 @@ Copyright 2003 Kimberly Otten Software Consulting
 #define MCP_CANINTF		0x2C
 #define MCP_EFLG		0x2D
 #define MCP_TXB0CTRL	0x30
+//Disse har vi definert selv
+#define MCP_TXB0SIDH	0x31
+#define MCP_TXB0SIDL	0x32
+#define MCP_TXB0DLC		0x35
+#define MCP_TXB0D0		0x36
+#define MCP_TXB0D1		0x37
+#define MCP_TXB0D2		0x38
+#define MCP_TXB0D3		0x39
+#define MCP_TXB0D4		0x3A
+#define MCP_TXB0D5		0x3B
+#define MCP_TXB0D6		0x3C
+#define MCP_TXB0D7		0x3D
+/*------------------------*/
 #define MCP_TXB1CTRL	0x40
 #define MCP_TXB2CTRL	0x50
 #define MCP_RXB0CTRL	0x60
@@ -141,7 +156,8 @@ Copyright 2003 Kimberly Otten Software Consulting
 #define BTLMODE			0x80
 #define SAMPLE_1X       0x00
 #define SAMPLE_3X       0x40
-
+#define PHSEG1			0x30
+#define PRSEG			0x01 
 
 // CNF3 Register Values
 
@@ -149,6 +165,7 @@ Copyright 2003 Kimberly Otten Software Consulting
 #define SOF_DISABLE		0x00
 #define WAKFIL_ENABLE	0x40
 #define WAKFIL_DISABLE	0x00
+#define PHSEG2			0x05
 
 
 // CANINTF Register Bits
@@ -162,6 +179,21 @@ Copyright 2003 Kimberly Otten Software Consulting
 #define MCP_WAKIF		0x40
 #define MCP_MERRF		0x80
 
+// RXB0CTRL Register Bits
+#define MCP_RXM0		0x20
+#define MCP_RXM1		0x40
+
+// man kan maksimalt ha 25 TQs, det er summen av antall TQs på SyncSeg + PropSeg + PhaseSeg1 + PhaseSeg2		
+#define CAN_BRP 0x03
+
+
+void mcp2515_reset();
+uint8_t mcp2515_init();
+uint8_t mcp2515_read(uint8_t address);
+void mcp2515_write(uint8_t address, uint8_t data);
+void mcp2515_request_to_send();
+void mcp2515_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
+void mcp2515_read_status();
 
 
 #endif

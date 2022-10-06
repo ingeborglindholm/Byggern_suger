@@ -11,7 +11,12 @@
 #include <avr/io.h>
 
 
+
 void SPI_init();
+
+void set_SS_low();
+
+void set_SS_high();
 
 void SPI_send(uint8_t data);
 
