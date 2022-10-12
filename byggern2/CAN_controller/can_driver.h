@@ -20,3 +20,4 @@ typedef struct{
 void CAN_init();
 void CAN_transmit(Frame message);
 Frame CAN_recieve();
+

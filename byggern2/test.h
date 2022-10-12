@@ -30,3 +30,5 @@ void NAND_test(void);
 void test_multifunction();
 
 void can_test();
+
+void SPDR_test();

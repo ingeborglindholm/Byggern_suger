@@ -17,22 +17,17 @@
 
 int main(void){
 	uart_init(MYUBRR);
+	printf("\r\n\n\n\nStart test: \n\r");
 	xmem_init(); 
 	
-	multifunction_init();
-	printf("Start test: \n\r");
+	//multifunction_init();
+	printf("\r\n\n\n\nStart test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)
 	
-	/*
-	SPI_init();
-	while(1){
-		SPI_send(0b01011111);
-		//SPI_send(0b11111111);
-		//uint8_t x = SPDR;
-		uint8_t x = SPI_read();
-		printf("Look at this: %d\n", x);
-	}
-	*/
+	
+	
 	can_test();
+	
+	SPDR_test();
 }
 
 /*
@@ -44,7 +39,25 @@ int main(void){
 	- SPI_read/send er like som emil sine, det er også MCP2515 read/write 
 	
 	
+Spør studass: er det mening at man skal kunne printe SPDR?? det blir 0 uansett og dermed blir value i mcp_init lik 0 og dermed
+får vi at vi ikke er i config-mode
 
 
+Enten så er value faktisk 0, som betyr at SPI_send ikke fungerer
+Eller så blir value 0 fordi SPI_read ikke funker
 
+Update: SPDR er 0, det får aldri en verdi, så da er det ikke så rart at det vi leser fra SPDR også er 0...
+
+OBSOBS!!!!!!!!!!!!!!!!!!!!
+Bruk 2043 på Arduino, Jan og Luan brukte feil og fant ikke Arduinoen på PC-en
 */
+
+
+	/*SPI_init();
+	while(1){
+		SPI_send(0b01011111);
+		//SPI_send(0b11111111);
+		//uint8_t x = SPDR;
+		uint8_t x = SPI_read();
+		printf("Look at this: %d\n", x);
+	}*/

@@ -7,6 +7,7 @@
  */ 
 
 #include "can_driver.h"
+#include <avr/interrupt.h>
 
 void CAN_init(){
 	mcp2515_init();
@@ -43,13 +44,15 @@ void CAN_transmit(Frame message){
 Frame CAN_recieve(){
 	Frame message;
 	 
-// Tips for feilsøking:	mcp2515_read_status();
+	// Tips for feilsøking:	mcp2515_read_status();
 	message.message_IDH = mcp2515_read(MCP_RXB0SIDH);
 	message.message_IDL = mcp2515_read(MCP_RXB0SIDL);
 	message.data_lenght = mcp2515_read(MCP_RXB0DLC);
+	
 	for (int i = 0; i < message.data_lenght; i++){
 		message.data[i] = mcp2515_read(MCP_RXB0D0 + i);
 	}
 	
 	return message;
 }
+

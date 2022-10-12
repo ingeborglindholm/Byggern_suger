@@ -28,12 +28,11 @@ uint8_t mcp2515_init(){
 	// Self - test
 	value = mcp2515_read(MCP_CANSTAT);
 	uint8_t can_ctrl = mcp2515_read(MCP_CANCTRL);
-	printf("\nvalue: %d can_ctrl: %d \n" , value, can_ctrl);
-	/*if ((value & MODE_MASK) != MODE_CONFIG){
-		printf (" MCP2515 is NOT in configuration mode after reset !\n");
+	printf("\nvalue: %d can_ctrl: %d \n\r" , value, can_ctrl);
+	if ((value & MODE_MASK) != MODE_CONFIG){
+		printf ("MCP2515 is NOT in configuration mode after reset !\n\r");
 		return 1;
-	}*/
-	printf("Etter init");
+	}
 	// More initialization
 	//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 	

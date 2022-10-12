@@ -116,8 +116,33 @@ void can_test(){
 	
 	CAN_transmit(message);
 	Frame recieved_message = CAN_recieve();
-	printf("Recieved_message: %c \n -------------------------- \n\r",recieved_message.data[0]);
+	printf("Recieved_message: %d \n -------------------------- \n\r",recieved_message.data[0]);
 	
+}
+
+void SPDR_test(){
+	SPI_init();
+
+	char newData = 'b';
+	SPDR = newData;
+	printf("newData: %d \n\r", newData);
+	printf("SPDR: %d \n\r", SPDR);
+	
+	newData = 'q';
+	SPDR = newData;
+	printf("newData: %d \n\r", newData);
+	printf("SPDR: %d \n\r", SPDR);
+	
+	newData = 'a';
+	SPDR = newData;
+	printf("newData: %d \n\r", newData);
+	printf("SPDR: %d \n\r", SPDR);
+	
+	
+	newData = 'l';
+	SPDR = newData;
+	printf("newData: %d \n\r", newData);
+	printf("SPDR: %d \n\r", SPDR);
 }
 
 
