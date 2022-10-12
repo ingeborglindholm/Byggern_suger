@@ -103,3 +103,31 @@ void test_multifunction(){
 		_delay_ms(1000);
 	}
 }
+
+
+void can_test(){
+	Frame message;
+	message.message_IDH = 0b10101010;
+	message.message_IDL = 0b00010000;
+	message.data_lenght = 1; 
+	message.data[0] = 0b11001100;
+	
+	CAN_init();
+	
+	CAN_transmit(message);
+	Frame recieved_message = CAN_recieve();
+	printf("Recieved_message: %c \n -------------------------- \n\r",recieved_message.data[0]);
+	
+}
+
+
+/*
+	while (1){
+		_delay_ms(100);
+		update_arrow();
+		
+		if (joy_btn_pressed()){
+			printf("Menu choice: %d\n", get_menu_choice());
+		}
+	}	
+	*/

@@ -49,7 +49,7 @@ void SPI_send(uint8_t data){
 
 uint8_t SPI_read(){
 	//Legger en dummy byte på SPDR registeret og sender dette til CAN, får da tilbake det som lå på registere til CAN. 
-	uint8_t dummy = 0x00;
+	uint8_t dummy = 0x11;
 	SPI_send(dummy);
 	return SPDR;
 }

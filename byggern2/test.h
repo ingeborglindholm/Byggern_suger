@@ -15,6 +15,7 @@
 
 #include "uart.h"
 #include "Multifunc_board/multifunction.h"
+#include "CAN_controller/can_driver.h"
 
 void pina_test();
 
@@ -27,3 +28,5 @@ void SRAM_test(void);
 void NAND_test(void);
 
 void test_multifunction();
+
+void can_test();

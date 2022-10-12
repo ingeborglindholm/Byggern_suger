@@ -20,23 +20,31 @@ int main(void){
 	xmem_init(); 
 	
 	multifunction_init();
-	printf("Start test: \n");
+	printf("Start test: \n\r");
+	
 	/*
-	while (1){
-		_delay_ms(100);
-		update_arrow();
-		
-		if (joy_btn_pressed()){
-			printf("Menu choice: %d\n", get_menu_choice());
-		}
-	}	
-	*/
 	SPI_init();
 	while(1){
-		SPI_send(0b01010101);
+		SPI_send(0b01011111);
 		//SPI_send(0b11111111);
 		//uint8_t x = SPDR;
 		uint8_t x = SPI_read();
-		//printf("Look at this: %d\n", x);
+		printf("Look at this: %d\n", x);
 	}
+	*/
+	can_test();
 }
+
+/*
+- Sjekket at SCK og SI fungerer som de skal, SO er en trapp/et funky signal.	
+	* Verifisere at det går fint 
+	
+- Prøver å kjøre CAN_test (send noe og les det tilbake, print til skjerm.) 
+	- Det stopper opp fordi vi tilsynelatende ikke er i config_mode. Mest sannsynlig er det noe feil med read, ikke moden 
+	- SPI_read/send er like som emil sine, det er også MCP2515 read/write 
+	
+	
+
+
+
+*/

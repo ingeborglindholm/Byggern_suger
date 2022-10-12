@@ -22,7 +22,8 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  .././Multifunc_board/oled.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././Multifunc_board/menu.h .././CAN_controller/spi_driver.h
+ .././Multifunc_board/menu.h .././CAN_controller/can_driver.h \
+ .././CAN_controller/mcp2515_driver.h .././CAN_controller/spi_driver.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -75,5 +76,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
 .././Multifunc_board/menu.h:
+
+.././CAN_controller/can_driver.h:
+
+.././CAN_controller/mcp2515_driver.h:
 
 .././CAN_controller/spi_driver.h:

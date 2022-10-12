@@ -85,6 +85,18 @@ Copyright 2003 Kimberly Otten Software Consulting
 #define MCP_TXB2CTRL	0x50
 #define MCP_RXB0CTRL	0x60
 #define MCP_RXB0SIDH	0x61
+//Disse har vi definert selv
+#define MCP_RXB0SIDL	0x62
+#define MCP_RXB0DLC		0x65
+#define MCP_RXB0D0		0x66
+#define MCP_RXB0D1		0x67
+#define MCP_RXB0D2		0x68
+#define MCP_RXB0D3		0x69
+#define MCP_RXB0D4		0x6A
+#define MCP_RXB0D5		0x6B
+#define MCP_RXB0D6		0x6C
+#define MCP_RXB0D7		0x6D
+/* -----------------------*/
 #define MCP_RXB1CTRL	0x70
 #define MCP_RXB1SIDH	0x71
 
@@ -193,7 +205,7 @@ uint8_t mcp2515_read(uint8_t address);
 void mcp2515_write(uint8_t address, uint8_t data);
 void mcp2515_request_to_send();
 void mcp2515_bit_modify(uint8_t address, uint8_t mask, uint8_t data);
-void mcp2515_read_status();
+uint8_t mcp2515_read_status();
 
 
 #endif

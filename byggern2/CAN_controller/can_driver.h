@@ -8,15 +8,15 @@
 
 #include "mcp2515_driver.h"
 
-#define FOSC 16000000 //Clock Speed
+//#define F_CPU 16000000 //Clock Speed
 
 typedef struct{
 	uint8_t message_IDH;
 	uint8_t message_IDL;
 	uint8_t data_lenght;
 	uint8_t data[8];
-	} Setup;
+	} Frame;
 
 void CAN_init();
-void CAN_transmit(Setup message);
-uint8_t CAN_recieve();
+void CAN_transmit(Frame message);
+Frame CAN_recieve();
