@@ -10,16 +10,19 @@
 #include "spi_driver.h"
 #include <util/delay.h>
 
+void set_SS_low(){
+	//Setter SS til 0
+	PORTB &= ~(1<<PB4);
+}
 
+void set_SS_high(){
+	//Setter SS til 1
+	PORTB |= (1<<PB4);
+}
 
 void SPI_init(){
-	
-	DDRB = 0x00;
-	PORTB = 0x00;
-	SPCR = 0x00;
-	
 	// input = 0, output = 1
-	
+	printf("start spi\n\r");
 	//Setter MOSI, SCK og SS til output
 	DDRB |= (1<<PB4)|(1<<PB5)|(1<<PB7);
 	DDRB &= ~(1<<PB6);
@@ -35,16 +38,6 @@ void SPI_init(){
 	printf("DDRB: %d, SPCR: %d, PORTB: %d, SPDR: %d \r\n", DDRB, SPCR, PORTB, SPDR);
 }
 
-
-void set_SS_low(){
-	//Setter SS til 0
-	PORTB &= ~(1<<PB4);
-}
-
-void set_SS_high(){
-	//Setter SS til 1
-	PORTB |= (1<<PB4);
-}
 
 void SPI_send(uint8_t data){
 	//setter SS lav

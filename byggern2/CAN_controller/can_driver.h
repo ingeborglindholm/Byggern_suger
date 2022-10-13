@@ -5,6 +5,7 @@
  * Created: 05.10.2022 14:41:20
  *  Author: martge
  */ 
+#pragma once
 
 #include "mcp2515_driver.h"
 

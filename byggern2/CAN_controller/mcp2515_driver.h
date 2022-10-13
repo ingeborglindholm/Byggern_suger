@@ -9,6 +9,8 @@
 #ifndef __MCP2515_H
 #define __MCP2515_H
 
+#pragma once
+
 #include "spi_driver.h"
 
 /*

@@ -11,11 +11,13 @@
 void multifunction_init(){
 	adc_init();
 	//Joy-stick button:
-	DDRB &= ~(1 << DDB7); //Sette PB7 til input
-	PORTB |= (1 << PINB0);
 	
+	DDRB &= ~(1 << DDB0); //Sette PB0 til input
+	PORTB |= (1 << PINB0);	// hva gjør denne?
+	
+	printf("portb: %d\n\r", PORTB);
 	calibrate_joy_stick();
-	
+	printf("etter knapp\n\r");
 	//Legge til initialisering av sliderknappene
 	
 	OLED_init();
@@ -29,6 +31,8 @@ void multifunction_init(){
 		.length = 5
 	};*/
 	
-	Menu current_menu = main_menu;
+	//Menu current_menu = main_menu;
+	printf("for menu init\n\r");
+	printf("main menu: %d\n\r", main_menu.length);
 	menu_init(main_menu);
 }

@@ -11,8 +11,11 @@
 int arrow_page = 1; 
 
 void menu_init(Menu menu_x){
-	OLED_init();
+	printf("inni menu init");
+	//OLED_init();
+	printf("reset");
 	OLED_reset();
+	
 	for (int i = 0; i < menu_x.length; i++){
 		OLED_pos(i, 16);
 		OLED_print_string(menu_x.choices[i]);

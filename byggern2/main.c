@@ -13,21 +13,31 @@
 #include "test.h"
 #include "xmem.h"
 #include "Multifunc_board/multifunction.h"
-#include "CAN_controller/spi_driver.h"
+#include "CAN_controller/can_driver.h"
+
 
 int main(void){
 	uart_init(MYUBRR);
 	printf("\r\n\n\n\nStart test: \n\r");
 	xmem_init(); 
 	
-	//multifunction_init();
+	multifunction_init();
 	printf("\r\n\n\n\nStart test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)
 	
 	
 	
-	can_test();
+	/*while (1){
+		_delay_ms(100);
+		update_arrow();
+		
+		if (joy_btn_pressed()){
+			printf("Menu choice: %d\n", get_menu_choice());
+		}
+	}*/
 	
+	can_test();
 	SPDR_test();
+	
 }
 
 /*
@@ -50,6 +60,8 @@ Update: SPDR er 0, det får aldri en verdi, så da er det ikke så rart at det vi l
 
 OBSOBS!!!!!!!!!!!!!!!!!!!!
 Bruk 2043 på Arduino, Jan og Luan brukte feil og fant ikke Arduinoen på PC-en
+
+84MHz MCK Arduino master clock
 */
 
 
