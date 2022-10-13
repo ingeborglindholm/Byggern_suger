@@ -22,7 +22,6 @@ void set_SS_high(){
 
 void SPI_init(){
 	// input = 0, output = 1
-	printf("start spi\n\r");
 	//Setter MOSI, SCK og SS til output
 	DDRB |= (1<<PB4)|(1<<PB5)|(1<<PB7);
 	DDRB &= ~(1<<PB6);
@@ -35,31 +34,18 @@ void SPI_init(){
 	//Setter SS til 1
 	//PORTB |= (1<<PB4);
 	set_SS_high();
-	printf("DDRB: %d, SPCR: %d, PORTB: %d, SPDR: %d \r\n", DDRB, SPCR, PORTB, SPDR);
 }
 
 
 void SPI_send(uint8_t data){
-	//setter SS lav
-	//set_SS_low();
 	//Start transmission
-	printf("\n\nSPDR forrige: %d\n\r", SPDR);
 	SPDR = data;
-	//_delay_ms(500);
-	printf("data: %d\n\r", data);
-	printf("SPDR: %d\n\r", SPDR);
-	
-	_delay_ms(1000);
 	
 	//venter på at transmision skal fullføres 
 	while (!(SPSR & (1<<SPIF))){
-		printf("SPSR waiting: %d\n\r", SPSR);
 		;
 	}
-	printf("SPSR done: %d\n\r", SPSR);
-	//Setter SS høy
-	//set_SS_high();
-	
+
 	/*
 	SPIF settes til 1 når en serial transfer er er ferdig.
 	while-løkken kjører while(1), som er mens SPSR & SPIF er 0 fordi vi inverterer

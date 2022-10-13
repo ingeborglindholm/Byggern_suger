@@ -22,21 +22,27 @@ int main(void){
 	xmem_init(); 
 	
 	multifunction_init();
-	printf("\r\n\n\n\nStart test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)
+	can_test();
 	
 	
+	SPDR_test();
 	
-	/*while (1){
+	
+	printf("\r\n\n\nSlutt test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)
+	
+	
+/*
+	
+	while (1){
 		_delay_ms(100);
 		update_arrow();
 		
 		if (joy_btn_pressed()){
 			printf("Menu choice: %d\n", get_menu_choice());
 		}
-	}*/
+	}
+	*/
 	
-	can_test();
-	SPDR_test();
 	
 }
 

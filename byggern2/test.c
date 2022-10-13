@@ -115,6 +115,8 @@ void can_test(){
 	CAN_init();
 	
 	CAN_transmit(message);
+	
+	_delay_ms(1000);
 	Frame recieved_message = CAN_recieve();
 	printf("Recieved_message: %d \n -------------------------- \n\r",recieved_message.data[0]);
 	
@@ -123,8 +125,12 @@ void can_test(){
 void SPDR_test(){
 	SPI_init();
 
+	set_SS_low();
 	char newData = 'b';
 	SPDR = newData;
+	
+	_delay_ms(1000);
+	
 	printf("newData: %d \n\r", newData);
 	printf("SPDR: %d \n\r", SPDR);
 	
@@ -143,6 +149,7 @@ void SPDR_test(){
 	SPDR = newData;
 	printf("newData: %d \n\r", newData);
 	printf("SPDR: %d \n\r", SPDR);
+	set_SS_high();
 }
 
 
