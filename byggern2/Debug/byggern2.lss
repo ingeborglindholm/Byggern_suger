@@ -19,15 +19,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   7 .debug_abbrev 0000131d  00000000  00000000  0000431b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000016a0  00000000  00000000  00005638  2**0
+  8 .debug_line   000016fb  00000000  00000000  00005638  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  0000070c  00000000  00000000  00006cd8  2**2
+  9 .debug_frame  0000070c  00000000  00000000  00006d34  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000a54  00000000  00000000  000073e4  2**0
+ 10 .debug_str    00000a00  00000000  00000000  00007440  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000013f9  00000000  00000000  00007e38  2**0
+ 11 .debug_loc    000013f9  00000000  00000000  00007e40  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000268  00000000  00000000  00009231  2**0
+ 12 .debug_ranges 00000268  00000000  00000000  00009239  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1191,6 +1191,12 @@ void multifunction_init(){
      742:	08 95       	ret
 
 00000744 <OLED_write_command>:
+	if (page > 7 && page < 0){
+		return 0;
+	}
+	OLED_pos(page, 0);
+	return 0;
+}
      744:	80 93 00 10 	sts	0x1000, r24	; 0x801000 <__bss_end+0xcaa>
      748:	08 95       	ret
 
@@ -1329,14 +1335,19 @@ void multifunction_init(){
      894:	08 95       	ret
 
 00000896 <OLED_print_char>:
+
+void OLED_print_char(char* c){
      896:	0f 93       	push	r16
      898:	1f 93       	push	r17
      89a:	cf 93       	push	r28
      89c:	df 93       	push	r29
      89e:	8c 01       	movw	r16, r24
+	unsigned char byte;
+	for (int i = 0; i < 8; i++){
      8a0:	c0 e0       	ldi	r28, 0x00	; 0
      8a2:	d0 e0       	ldi	r29, 0x00	; 0
      8a4:	12 c0       	rjmp	.+36     	; 0x8ca <OLED_print_char+0x34>
+		byte = pgm_read_byte(&(font8[*c-32][i])); //Font starts on char value 32 in ASCII-table
      8a6:	d8 01       	movw	r26, r16
      8a8:	ec 91       	ld	r30, X
      8aa:	f0 e0       	ldi	r31, 0x00	; 0
@@ -1352,11 +1363,22 @@ void multifunction_init(){
      8be:	e0 59       	subi	r30, 0x90	; 144
      8c0:	ff 4f       	sbci	r31, 0xFF	; 255
      8c2:	84 91       	lpm	r24, Z
+		OLED_write_data(byte);
      8c4:	0e 94 eb 03 	call	0x7d6	; 0x7d6 <OLED_write_data>
+	return 0;
+}
+
+void OLED_print_char(char* c){
+	unsigned char byte;
+	for (int i = 0; i < 8; i++){
      8c8:	21 96       	adiw	r28, 0x01	; 1
      8ca:	c8 30       	cpi	r28, 0x08	; 8
      8cc:	d1 05       	cpc	r29, r1
      8ce:	5c f3       	brlt	.-42     	; 0x8a6 <OLED_print_char+0x10>
+		byte = pgm_read_byte(&(font8[*c-32][i])); //Font starts on char value 32 in ASCII-table
+		OLED_write_data(byte);
+	}
+}
      8d0:	df 91       	pop	r29
      8d2:	cf 91       	pop	r28
      8d4:	1f 91       	pop	r17
@@ -1364,6 +1386,8 @@ void multifunction_init(){
      8d8:	08 95       	ret
 
 000008da <OLED_print_string>:
+
+void OLED_print_string(char str[]){
      8da:	ef 92       	push	r14
      8dc:	ff 92       	push	r15
      8de:	0f 93       	push	r16
@@ -1371,6 +1395,7 @@ void multifunction_init(){
      8e2:	cf 93       	push	r28
      8e4:	df 93       	push	r29
      8e6:	7c 01       	movw	r14, r24
+	int length = strlen(str);
      8e8:	fc 01       	movw	r30, r24
      8ea:	01 90       	ld	r0, Z+
      8ec:	00 20       	and	r0, r0
@@ -1379,17 +1404,27 @@ void multifunction_init(){
      8f2:	8f 01       	movw	r16, r30
      8f4:	08 1b       	sub	r16, r24
      8f6:	19 0b       	sbc	r17, r25
+	for (int i = 0; i < length; i++){
      8f8:	c0 e0       	ldi	r28, 0x00	; 0
      8fa:	d0 e0       	ldi	r29, 0x00	; 0
      8fc:	06 c0       	rjmp	.+12     	; 0x90a <OLED_print_string+0x30>
+		OLED_print_char(str + i);
      8fe:	c7 01       	movw	r24, r14
      900:	8c 0f       	add	r24, r28
      902:	9d 1f       	adc	r25, r29
      904:	0e 94 4b 04 	call	0x896	; 0x896 <OLED_print_char>
+	}
+}
+
+void OLED_print_string(char str[]){
+	int length = strlen(str);
+	for (int i = 0; i < length; i++){
      908:	21 96       	adiw	r28, 0x01	; 1
      90a:	c0 17       	cp	r28, r16
      90c:	d1 07       	cpc	r29, r17
      90e:	bc f3       	brlt	.-18     	; 0x8fe <OLED_print_string+0x24>
+		OLED_print_char(str + i);
+	}
      910:	df 91       	pop	r29
      912:	cf 91       	pop	r28
      914:	1f 91       	pop	r17
@@ -1399,6 +1434,12 @@ void multifunction_init(){
      91c:	08 95       	ret
 
 0000091e <adc_init>:
+	return (ADC_output){data_channel_0, data_channel_1, data_channel_2, data_channel_3};
+}
+
+int to_percent(uint8_t pos_in_bit){
+	return (int)pos_in_bit  * ((float)200) / ((float)256) - 100;		// Skalering: hele bredden er 200% med 0% i midten og -100% og 100% i hver sin ende
+}
      91e:	81 b3       	in	r24, 0x11	; 17
      920:	80 62       	ori	r24, 0x20	; 32
      922:	81 bb       	out	0x11, r24	; 17
@@ -1458,275 +1499,326 @@ void multifunction_init(){
      990:	08 95       	ret
 
 00000992 <calibrate_joy_stick>:
+
+
+void calibrate_joy_stick(){
+	ADC_output adc_output = adc_read();
      992:	0e 94 bb 04 	call	0x976	; 0x976 <adc_read>
+	uint8_t x = adc_output.x_axis;
+	uint8_t y = adc_output.y_axis;
+	
+	uint8_t* x_pos_offset = (uint8_t *) ( ADDRESS_SRAM + 4); 
+	*x_pos_offset = x;
      996:	60 93 04 18 	sts	0x1804, r22	; 0x801804 <__bss_end+0x14ae>
+	uint8_t* y_pos_offset = (uint8_t *) ( ADDRESS_SRAM + 8);
+	*y_pos_offset = y;
      99a:	70 93 08 18 	sts	0x1808, r23	; 0x801808 <__bss_end+0x14b2>
      99e:	08 95       	ret
 
-000009a0 <xmem_init>:
-     9a0:	85 b7       	in	r24, 0x35	; 53
-     9a2:	80 68       	ori	r24, 0x80	; 128
-     9a4:	85 bf       	out	0x35, r24	; 53
-     9a6:	80 b7       	in	r24, 0x30	; 48
-     9a8:	80 62       	ori	r24, 0x20	; 32
-     9aa:	80 bf       	out	0x30, r24	; 48
-     9ac:	08 95       	ret
-
-000009ae <can_test>:
+000009a0 <can_test>:
 		_delay_ms(1000);
 	}
 }
 
 
 void can_test(){
-     9ae:	ef 92       	push	r14
-     9b0:	ff 92       	push	r15
-     9b2:	0f 93       	push	r16
-     9b4:	1f 93       	push	r17
-     9b6:	cf 93       	push	r28
-     9b8:	df 93       	push	r29
-     9ba:	cd b7       	in	r28, 0x3d	; 61
-     9bc:	de b7       	in	r29, 0x3e	; 62
-     9be:	66 97       	sbiw	r28, 0x16	; 22
-     9c0:	0f b6       	in	r0, 0x3f	; 63
-     9c2:	f8 94       	cli
-     9c4:	de bf       	out	0x3e, r29	; 62
-     9c6:	0f be       	out	0x3f, r0	; 63
-     9c8:	cd bf       	out	0x3d, r28	; 61
+     9a0:	ef 92       	push	r14
+     9a2:	ff 92       	push	r15
+     9a4:	0f 93       	push	r16
+     9a6:	1f 93       	push	r17
+     9a8:	cf 93       	push	r28
+     9aa:	df 93       	push	r29
+     9ac:	cd b7       	in	r28, 0x3d	; 61
+     9ae:	de b7       	in	r29, 0x3e	; 62
+     9b0:	66 97       	sbiw	r28, 0x16	; 22
+     9b2:	0f b6       	in	r0, 0x3f	; 63
+     9b4:	f8 94       	cli
+     9b6:	de bf       	out	0x3e, r29	; 62
+     9b8:	0f be       	out	0x3f, r0	; 63
+     9ba:	cd bf       	out	0x3d, r28	; 61
 	Frame message;
 	message.message_IDH = 0b10101010;
-     9ca:	8a ea       	ldi	r24, 0xAA	; 170
-     9cc:	89 83       	std	Y+1, r24	; 0x01
+     9bc:	8a ea       	ldi	r24, 0xAA	; 170
+     9be:	89 83       	std	Y+1, r24	; 0x01
 	message.message_IDL = 0b00010000;
-     9ce:	80 e1       	ldi	r24, 0x10	; 16
-     9d0:	8a 83       	std	Y+2, r24	; 0x02
+     9c0:	80 e1       	ldi	r24, 0x10	; 16
+     9c2:	8a 83       	std	Y+2, r24	; 0x02
 	message.data_lenght = 1; 
-     9d2:	81 e0       	ldi	r24, 0x01	; 1
-     9d4:	8b 83       	std	Y+3, r24	; 0x03
+     9c4:	81 e0       	ldi	r24, 0x01	; 1
+     9c6:	8b 83       	std	Y+3, r24	; 0x03
 	message.data[0] = 0b11001100;
-     9d6:	8c ec       	ldi	r24, 0xCC	; 204
-     9d8:	8c 83       	std	Y+4, r24	; 0x04
+     9c8:	8c ec       	ldi	r24, 0xCC	; 204
+     9ca:	8c 83       	std	Y+4, r24	; 0x04
 	
 	CAN_init();
-     9da:	0e 94 d3 01 	call	0x3a6	; 0x3a6 <CAN_init>
+     9cc:	0e 94 d3 01 	call	0x3a6	; 0x3a6 <CAN_init>
 	
 	CAN_transmit(message);
-     9de:	e9 80       	ldd	r14, Y+1	; 0x01
-     9e0:	fa 80       	ldd	r15, Y+2	; 0x02
-     9e2:	0b 81       	ldd	r16, Y+3	; 0x03
-     9e4:	1c 81       	ldd	r17, Y+4	; 0x04
-     9e6:	2d 81       	ldd	r18, Y+5	; 0x05
-     9e8:	3e 81       	ldd	r19, Y+6	; 0x06
-     9ea:	4f 81       	ldd	r20, Y+7	; 0x07
-     9ec:	58 85       	ldd	r21, Y+8	; 0x08
-     9ee:	69 85       	ldd	r22, Y+9	; 0x09
-     9f0:	7a 85       	ldd	r23, Y+10	; 0x0a
-     9f2:	8b 85       	ldd	r24, Y+11	; 0x0b
-     9f4:	0e 94 e7 01 	call	0x3ce	; 0x3ce <CAN_transmit>
+     9d0:	e9 80       	ldd	r14, Y+1	; 0x01
+     9d2:	fa 80       	ldd	r15, Y+2	; 0x02
+     9d4:	0b 81       	ldd	r16, Y+3	; 0x03
+     9d6:	1c 81       	ldd	r17, Y+4	; 0x04
+     9d8:	2d 81       	ldd	r18, Y+5	; 0x05
+     9da:	3e 81       	ldd	r19, Y+6	; 0x06
+     9dc:	4f 81       	ldd	r20, Y+7	; 0x07
+     9de:	58 85       	ldd	r21, Y+8	; 0x08
+     9e0:	69 85       	ldd	r22, Y+9	; 0x09
+     9e2:	7a 85       	ldd	r23, Y+10	; 0x0a
+     9e4:	8b 85       	ldd	r24, Y+11	; 0x0b
+     9e6:	0e 94 e7 01 	call	0x3ce	; 0x3ce <CAN_transmit>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-     9f8:	2f ef       	ldi	r18, 0xFF	; 255
-     9fa:	8f ef       	ldi	r24, 0xFF	; 255
-     9fc:	9e e0       	ldi	r25, 0x0E	; 14
-     9fe:	21 50       	subi	r18, 0x01	; 1
-     a00:	80 40       	sbci	r24, 0x00	; 0
-     a02:	90 40       	sbci	r25, 0x00	; 0
-     a04:	e1 f7       	brne	.-8      	; 0x9fe <can_test+0x50>
-     a06:	00 c0       	rjmp	.+0      	; 0xa08 <can_test+0x5a>
-     a08:	00 00       	nop
+     9ea:	2f ef       	ldi	r18, 0xFF	; 255
+     9ec:	8f ef       	ldi	r24, 0xFF	; 255
+     9ee:	9e e0       	ldi	r25, 0x0E	; 14
+     9f0:	21 50       	subi	r18, 0x01	; 1
+     9f2:	80 40       	sbci	r24, 0x00	; 0
+     9f4:	90 40       	sbci	r25, 0x00	; 0
+     9f6:	e1 f7       	brne	.-8      	; 0x9f0 <can_test+0x50>
+     9f8:	00 c0       	rjmp	.+0      	; 0x9fa <can_test+0x5a>
+     9fa:	00 00       	nop
 	
 	_delay_ms(1000);
 	Frame recieved_message = CAN_recieve();
-     a0a:	ce 01       	movw	r24, r28
-     a0c:	0c 96       	adiw	r24, 0x0c	; 12
-     a0e:	0e 94 31 02 	call	0x462	; 0x462 <CAN_recieve>
+     9fc:	ce 01       	movw	r24, r28
+     9fe:	0c 96       	adiw	r24, 0x0c	; 12
+     a00:	0e 94 31 02 	call	0x462	; 0x462 <CAN_recieve>
 	printf("Recieved_message: %d \n -------------------------- \n\r",recieved_message.data[0]);
-     a12:	8f 85       	ldd	r24, Y+15	; 0x0f
-     a14:	1f 92       	push	r1
-     a16:	8f 93       	push	r24
-     a18:	85 ed       	ldi	r24, 0xD5	; 213
-     a1a:	92 e0       	ldi	r25, 0x02	; 2
-     a1c:	9f 93       	push	r25
-     a1e:	8f 93       	push	r24
-     a20:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+     a04:	8f 85       	ldd	r24, Y+15	; 0x0f
+     a06:	1f 92       	push	r1
+     a08:	8f 93       	push	r24
+     a0a:	85 ed       	ldi	r24, 0xD5	; 213
+     a0c:	92 e0       	ldi	r25, 0x02	; 2
+     a0e:	9f 93       	push	r25
+     a10:	8f 93       	push	r24
+     a12:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	
 }
-     a24:	0f 90       	pop	r0
-     a26:	0f 90       	pop	r0
-     a28:	0f 90       	pop	r0
-     a2a:	0f 90       	pop	r0
-     a2c:	66 96       	adiw	r28, 0x16	; 22
-     a2e:	0f b6       	in	r0, 0x3f	; 63
-     a30:	f8 94       	cli
-     a32:	de bf       	out	0x3e, r29	; 62
-     a34:	0f be       	out	0x3f, r0	; 63
-     a36:	cd bf       	out	0x3d, r28	; 61
-     a38:	df 91       	pop	r29
-     a3a:	cf 91       	pop	r28
-     a3c:	1f 91       	pop	r17
-     a3e:	0f 91       	pop	r16
-     a40:	ff 90       	pop	r15
-     a42:	ef 90       	pop	r14
-     a44:	08 95       	ret
+     a16:	0f 90       	pop	r0
+     a18:	0f 90       	pop	r0
+     a1a:	0f 90       	pop	r0
+     a1c:	0f 90       	pop	r0
+     a1e:	66 96       	adiw	r28, 0x16	; 22
+     a20:	0f b6       	in	r0, 0x3f	; 63
+     a22:	f8 94       	cli
+     a24:	de bf       	out	0x3e, r29	; 62
+     a26:	0f be       	out	0x3f, r0	; 63
+     a28:	cd bf       	out	0x3d, r28	; 61
+     a2a:	df 91       	pop	r29
+     a2c:	cf 91       	pop	r28
+     a2e:	1f 91       	pop	r17
+     a30:	0f 91       	pop	r16
+     a32:	ff 90       	pop	r15
+     a34:	ef 90       	pop	r14
+     a36:	08 95       	ret
 
-00000a46 <SPDR_test>:
+00000a38 <SPDR_test>:
 
 void SPDR_test(){
-     a46:	0f 93       	push	r16
-     a48:	1f 93       	push	r17
-     a4a:	cf 93       	push	r28
-     a4c:	df 93       	push	r29
+     a38:	0f 93       	push	r16
+     a3a:	1f 93       	push	r17
+     a3c:	cf 93       	push	r28
+     a3e:	df 93       	push	r29
 	SPI_init();
-     a4e:	0e 94 0f 03 	call	0x61e	; 0x61e <SPI_init>
+     a40:	0e 94 0f 03 	call	0x61e	; 0x61e <SPI_init>
 
 	set_SS_low();
-     a52:	0e 94 07 03 	call	0x60e	; 0x60e <set_SS_low>
+     a44:	0e 94 07 03 	call	0x60e	; 0x60e <set_SS_low>
 	char newData = 'b';
 	SPDR = newData;
-     a56:	82 e6       	ldi	r24, 0x62	; 98
-     a58:	8f b9       	out	0x0f, r24	; 15
-     a5a:	2f ef       	ldi	r18, 0xFF	; 255
-     a5c:	3f ef       	ldi	r19, 0xFF	; 255
-     a5e:	9e e0       	ldi	r25, 0x0E	; 14
-     a60:	21 50       	subi	r18, 0x01	; 1
-     a62:	30 40       	sbci	r19, 0x00	; 0
-     a64:	90 40       	sbci	r25, 0x00	; 0
-     a66:	e1 f7       	brne	.-8      	; 0xa60 <SPDR_test+0x1a>
-     a68:	00 c0       	rjmp	.+0      	; 0xa6a <SPDR_test+0x24>
-     a6a:	00 00       	nop
+     a48:	82 e6       	ldi	r24, 0x62	; 98
+     a4a:	8f b9       	out	0x0f, r24	; 15
+     a4c:	2f ef       	ldi	r18, 0xFF	; 255
+     a4e:	3f ef       	ldi	r19, 0xFF	; 255
+     a50:	9e e0       	ldi	r25, 0x0E	; 14
+     a52:	21 50       	subi	r18, 0x01	; 1
+     a54:	30 40       	sbci	r19, 0x00	; 0
+     a56:	90 40       	sbci	r25, 0x00	; 0
+     a58:	e1 f7       	brne	.-8      	; 0xa52 <SPDR_test+0x1a>
+     a5a:	00 c0       	rjmp	.+0      	; 0xa5c <SPDR_test+0x24>
+     a5c:	00 00       	nop
 	
 	_delay_ms(1000);
 	
 	printf("newData: %d \n\r", newData);
-     a6c:	1f 92       	push	r1
-     a6e:	8f 93       	push	r24
-     a70:	0a e0       	ldi	r16, 0x0A	; 10
-     a72:	13 e0       	ldi	r17, 0x03	; 3
-     a74:	1f 93       	push	r17
-     a76:	0f 93       	push	r16
-     a78:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+     a5e:	1f 92       	push	r1
+     a60:	8f 93       	push	r24
+     a62:	0a e0       	ldi	r16, 0x0A	; 10
+     a64:	13 e0       	ldi	r17, 0x03	; 3
+     a66:	1f 93       	push	r17
+     a68:	0f 93       	push	r16
+     a6a:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	printf("SPDR: %d \n\r", SPDR);
-     a7c:	8f b1       	in	r24, 0x0f	; 15
-     a7e:	1f 92       	push	r1
-     a80:	8f 93       	push	r24
-     a82:	c9 e1       	ldi	r28, 0x19	; 25
-     a84:	d3 e0       	ldi	r29, 0x03	; 3
-     a86:	df 93       	push	r29
-     a88:	cf 93       	push	r28
-     a8a:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+     a6e:	8f b1       	in	r24, 0x0f	; 15
+     a70:	1f 92       	push	r1
+     a72:	8f 93       	push	r24
+     a74:	c9 e1       	ldi	r28, 0x19	; 25
+     a76:	d3 e0       	ldi	r29, 0x03	; 3
+     a78:	df 93       	push	r29
+     a7a:	cf 93       	push	r28
+     a7c:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	
 	newData = 'q';
 	SPDR = newData;
-     a8e:	81 e7       	ldi	r24, 0x71	; 113
-     a90:	8f b9       	out	0x0f, r24	; 15
+     a80:	81 e7       	ldi	r24, 0x71	; 113
+     a82:	8f b9       	out	0x0f, r24	; 15
 	printf("newData: %d \n\r", newData);
+     a84:	1f 92       	push	r1
+     a86:	8f 93       	push	r24
+     a88:	1f 93       	push	r17
+     a8a:	0f 93       	push	r16
+     a8c:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+	printf("SPDR: %d \n\r", SPDR);
+     a90:	8f b1       	in	r24, 0x0f	; 15
      a92:	1f 92       	push	r1
      a94:	8f 93       	push	r24
-     a96:	1f 93       	push	r17
-     a98:	0f 93       	push	r16
+     a96:	df 93       	push	r29
+     a98:	cf 93       	push	r28
      a9a:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
-	printf("SPDR: %d \n\r", SPDR);
-     a9e:	8f b1       	in	r24, 0x0f	; 15
-     aa0:	1f 92       	push	r1
-     aa2:	8f 93       	push	r24
-     aa4:	df 93       	push	r29
-     aa6:	cf 93       	push	r28
-     aa8:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	
 	newData = 'a';
 	SPDR = newData;
-     aac:	81 e6       	ldi	r24, 0x61	; 97
-     aae:	8f b9       	out	0x0f, r24	; 15
+     a9e:	81 e6       	ldi	r24, 0x61	; 97
+     aa0:	8f b9       	out	0x0f, r24	; 15
 	printf("newData: %d \n\r", newData);
+     aa2:	1f 92       	push	r1
+     aa4:	8f 93       	push	r24
+     aa6:	1f 93       	push	r17
+     aa8:	0f 93       	push	r16
+     aaa:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+	printf("SPDR: %d \n\r", SPDR);
+     aae:	8f b1       	in	r24, 0x0f	; 15
      ab0:	1f 92       	push	r1
      ab2:	8f 93       	push	r24
-     ab4:	1f 93       	push	r17
-     ab6:	0f 93       	push	r16
+     ab4:	df 93       	push	r29
+     ab6:	cf 93       	push	r28
      ab8:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
-	printf("SPDR: %d \n\r", SPDR);
-     abc:	8f b1       	in	r24, 0x0f	; 15
-     abe:	1f 92       	push	r1
-     ac0:	8f 93       	push	r24
-     ac2:	df 93       	push	r29
-     ac4:	cf 93       	push	r28
-     ac6:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	
 	
 	newData = 'l';
 	SPDR = newData;
-     aca:	8c e6       	ldi	r24, 0x6C	; 108
-     acc:	8f b9       	out	0x0f, r24	; 15
+     abc:	8c e6       	ldi	r24, 0x6C	; 108
+     abe:	8f b9       	out	0x0f, r24	; 15
 	printf("newData: %d \n\r", newData);
+     ac0:	1f 92       	push	r1
+     ac2:	8f 93       	push	r24
+     ac4:	1f 93       	push	r17
+     ac6:	0f 93       	push	r16
+     ac8:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
+	printf("SPDR: %d \n\r", SPDR);
+     acc:	8f b1       	in	r24, 0x0f	; 15
      ace:	1f 92       	push	r1
      ad0:	8f 93       	push	r24
-     ad2:	1f 93       	push	r17
-     ad4:	0f 93       	push	r16
+     ad2:	df 93       	push	r29
+     ad4:	cf 93       	push	r28
      ad6:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
-	printf("SPDR: %d \n\r", SPDR);
-     ada:	8f b1       	in	r24, 0x0f	; 15
-     adc:	1f 92       	push	r1
-     ade:	8f 93       	push	r24
-     ae0:	df 93       	push	r29
-     ae2:	cf 93       	push	r28
-     ae4:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	set_SS_high();
-     ae8:	2d b7       	in	r18, 0x3d	; 61
-     aea:	3e b7       	in	r19, 0x3e	; 62
-     aec:	20 5e       	subi	r18, 0xE0	; 224
-     aee:	3f 4f       	sbci	r19, 0xFF	; 255
-     af0:	0f b6       	in	r0, 0x3f	; 63
-     af2:	f8 94       	cli
-     af4:	3e bf       	out	0x3e, r19	; 62
-     af6:	0f be       	out	0x3f, r0	; 63
-     af8:	2d bf       	out	0x3d, r18	; 61
-     afa:	0e 94 0b 03 	call	0x616	; 0x616 <set_SS_high>
+     ada:	2d b7       	in	r18, 0x3d	; 61
+     adc:	3e b7       	in	r19, 0x3e	; 62
+     ade:	20 5e       	subi	r18, 0xE0	; 224
+     ae0:	3f 4f       	sbci	r19, 0xFF	; 255
+     ae2:	0f b6       	in	r0, 0x3f	; 63
+     ae4:	f8 94       	cli
+     ae6:	3e bf       	out	0x3e, r19	; 62
+     ae8:	0f be       	out	0x3f, r0	; 63
+     aea:	2d bf       	out	0x3d, r18	; 61
+     aec:	0e 94 0b 03 	call	0x616	; 0x616 <set_SS_high>
 }
-     afe:	df 91       	pop	r29
-     b00:	cf 91       	pop	r28
-     b02:	1f 91       	pop	r17
-     b04:	0f 91       	pop	r16
-     b06:	08 95       	ret
+     af0:	df 91       	pop	r29
+     af2:	cf 91       	pop	r28
+     af4:	1f 91       	pop	r17
+     af6:	0f 91       	pop	r16
+     af8:	08 95       	ret
 
-00000b08 <uart_write>:
-     b08:	5d 9b       	sbis	0x0b, 5	; 11
-     b0a:	fe cf       	rjmp	.-4      	; 0xb08 <uart_write>
-     b0c:	8c b9       	out	0x0c, r24	; 12
-     b0e:	08 95       	ret
+00000afa <uart_write>:
 
-00000b10 <uart_read>:
-     b10:	5f 9b       	sbis	0x0b, 7	; 11
-     b12:	fe cf       	rjmp	.-4      	; 0xb10 <uart_read>
-     b14:	8c b1       	in	r24, 0x0c	; 12
-     b16:	08 95       	ret
+void uart_write(unsigned char letter){
+	/*1. Sjekke om det er klart til å sende ny data
+	2. sende ny data*/
+	 
+	while(!(UCSR0A & (1<<UDRE0))){
+     afa:	5d 9b       	sbis	0x0b, 5	; 11
+     afc:	fe cf       	rjmp	.-4      	; 0xafa <uart_write>
+		
+	}
+	UDR0 = letter;
+     afe:	8c b9       	out	0x0c, r24	; 12
+     b00:	08 95       	ret
 
-00000b18 <uart_init>:
-     b18:	90 bd       	out	0x20, r25	; 32
-     b1a:	89 b9       	out	0x09, r24	; 9
-     b1c:	88 e1       	ldi	r24, 0x18	; 24
-     b1e:	8a b9       	out	0x0a, r24	; 10
-     b20:	8e e8       	ldi	r24, 0x8E	; 142
-     b22:	80 bd       	out	0x20, r24	; 32
-     b24:	68 e8       	ldi	r22, 0x88	; 136
-     b26:	75 e0       	ldi	r23, 0x05	; 5
-     b28:	84 e8       	ldi	r24, 0x84	; 132
-     b2a:	95 e0       	ldi	r25, 0x05	; 5
-     b2c:	0e 94 b8 05 	call	0xb70	; 0xb70 <fdevopen>
+00000b02 <uart_read>:
+}
+
+unsigned char uart_read(){
+	while (!(UCSR0A & (1 << RXC0))){
+     b02:	5f 9b       	sbis	0x0b, 7	; 11
+     b04:	fe cf       	rjmp	.-4      	; 0xb02 <uart_read>
+		
+	}
+	return UDR0;
+     b06:	8c b1       	in	r24, 0x0c	; 12
+}
+     b08:	08 95       	ret
+
+00000b0a <uart_init>:
+
+#include "uart.h"
+
+void uart_init(unsigned int ubrr){
+	//Set baud rate, divided into two registers
+	UBRR0H = (unsigned char)(ubrr>>8); //high register, alt får egt plass på 8 bit så derfor blir det 0
+     b0a:	90 bd       	out	0x20, r25	; 32
+	UBRR0L = (unsigned char)ubrr; //low register
+     b0c:	89 b9       	out	0x09, r24	; 9
+				
+	/* Enable receiver and transmitter 
+	hvor mange bit data: man kan ha 5-9 bit, vi vil ha 8
+	hvor mange stop-bit: 2 stk, pga ignorerer det første bitet*/
+			
+	UCSR0B = (1 << RXEN0) | (1 << TXEN0);
+     b0e:	88 e1       	ldi	r24, 0x18	; 24
+     b10:	8a b9       	out	0x0a, r24	; 10
+	UCSR0C = (1 << URSEL0)|(1<< USBS0)|(3 << UCSZ00);
+     b12:	8e e8       	ldi	r24, 0x8E	; 142
+     b14:	80 bd       	out	0x20, r24	; 32
+	
+	fdevopen(uart_write, uart_read);
+     b16:	61 e8       	ldi	r22, 0x81	; 129
+     b18:	75 e0       	ldi	r23, 0x05	; 5
+     b1a:	8d e7       	ldi	r24, 0x7D	; 125
+     b1c:	95 e0       	ldi	r25, 0x05	; 5
+     b1e:	0e 94 b8 05 	call	0xb70	; 0xb70 <fdevopen>
+     b22:	08 95       	ret
+
+00000b24 <xmem_init>:
+ */
+ 
+#include "xmem.h"
+
+void xmem_init (void){
+	MCUCR |= (1 << SRE); // Enable XMEM
+     b24:	85 b7       	in	r24, 0x35	; 53
+     b26:	80 68       	ori	r24, 0x80	; 128
+     b28:	85 bf       	out	0x35, r24	; 53
+	SFIOR |= (1 << XMM2); // Fjerner JTAG-bitsene fra external memory address, se side 32 i ATmega datablad
+     b2a:	80 b7       	in	r24, 0x30	; 48
+     b2c:	80 62       	ori	r24, 0x20	; 32
+     b2e:	80 bf       	out	0x30, r24	; 48
      b30:	08 95       	ret
 
 00000b32 <main>:
-#include "Multifunc_board/multifunction.h"
-#include "CAN_controller/can_driver.h"
+#include "node1/Multifunc_board/multifunction.h"
+#include "node1/CAN_controller/can_driver.h"
 
 
 int main(void){
 	uart_init(MYUBRR);
      b32:	8f e1       	ldi	r24, 0x1F	; 31
      b34:	90 e0       	ldi	r25, 0x00	; 0
-     b36:	0e 94 8c 05 	call	0xb18	; 0xb18 <uart_init>
+     b36:	0e 94 85 05 	call	0xb0a	; 0xb0a <uart_init>
 	printf("\r\n\n\n\nStart test: \n\r");
      b3a:	85 e2       	ldi	r24, 0x25	; 37
      b3c:	93 e0       	ldi	r25, 0x03	; 3
@@ -1734,16 +1826,16 @@ int main(void){
      b40:	8f 93       	push	r24
      b42:	0e 94 03 06 	call	0xc06	; 0xc06 <printf>
 	xmem_init(); 
-     b46:	0e 94 d0 04 	call	0x9a0	; 0x9a0 <xmem_init>
+     b46:	0e 94 92 05 	call	0xb24	; 0xb24 <xmem_init>
 	
 	multifunction_init();
      b4a:	0e 94 5e 03 	call	0x6bc	; 0x6bc <multifunction_init>
 	can_test();
-     b4e:	0e 94 d7 04 	call	0x9ae	; 0x9ae <can_test>
+     b4e:	0e 94 d0 04 	call	0x9a0	; 0x9a0 <can_test>
 	
 	
 	SPDR_test();
-     b52:	0e 94 23 05 	call	0xa46	; 0xa46 <SPDR_test>
+     b52:	0e 94 1c 05 	call	0xa38	; 0xa38 <SPDR_test>
 	
 	
 	printf("\r\n\n\nSlutt test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)

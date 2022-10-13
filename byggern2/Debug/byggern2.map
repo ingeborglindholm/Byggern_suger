@@ -1,23 +1,23 @@
 Archive member included to satisfy reference by file (symbol)
 
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                              Multifunc_board/user_interface.o (__subsf3)
+                              node1/Multifunc_board/user_interface.o (__subsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o) (__addsf3x)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan2.o)
-                              Multifunc_board/user_interface.o (atan2)
+                              node1/Multifunc_board/user_interface.o (atan2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan2.o) (atan)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o)
-                              Multifunc_board/user_interface.o (__lesf2)
+                              node1/Multifunc_board/user_interface.o (__lesf2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan2.o) (__divsf3_pse)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                              Multifunc_board/user_interface.o (__fixsfsi)
+                              node1/Multifunc_board/user_interface.o (__fixsfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o) (__fixunssfsi)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                              Multifunc_board/user_interface.o (__floatsisf)
+                              node1/Multifunc_board/user_interface.o (__floatsisf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_cmp.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(cmpsf2.o) (__fp_cmp)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
@@ -37,11 +37,11 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o) (__fp_zero)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(gesf2.o)
-                              Multifunc_board/user_interface.o (__gtsf2)
+                              node1/Multifunc_board/user_interface.o (__gtsf2)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(inverse.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan.o) (inverse)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                              Multifunc_board/user_interface.o (__mulsf3)
+                              node1/Multifunc_board/user_interface.o (__mulsf3)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(atan.o) (__mulsf3x)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(square.o)
@@ -51,17 +51,17 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              CAN_controller/mcp2515_driver.o (__do_copy_data)
+                              node1/CAN_controller/mcp2515_driver.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(rand.o)
-                              test.o (rand)
+                              node1/test.o (rand)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fdevopen.o)
-                              uart.o (fdevopen)
+                              node1/uart.o (fdevopen)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(iob.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fdevopen.o) (__iob)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(printf.o)
-                              CAN_controller/mcp2515_driver.o (printf)
+                              node1/CAN_controller/mcp2515_driver.o (printf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(puts.o)
-                              test.o (puts)
+                              node1/test.o (puts)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
                               c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(printf.o) (vfprintf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(calloc.o)
@@ -108,80 +108,80 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .text          0x00000000        0x0 CAN_controller/can_driver.o
- .data          0x00000000        0x0 CAN_controller/can_driver.o
- .bss           0x00000000        0x0 CAN_controller/can_driver.o
- .text          0x00000000        0x0 CAN_controller/mcp2515_driver.o
- .data          0x00000000        0x0 CAN_controller/mcp2515_driver.o
- .bss           0x00000000        0x0 CAN_controller/mcp2515_driver.o
+ .text          0x00000000        0x0 node1/CAN_controller/can_driver.o
+ .data          0x00000000        0x0 node1/CAN_controller/can_driver.o
+ .bss           0x00000000        0x0 node1/CAN_controller/can_driver.o
+ .text          0x00000000        0x0 node1/CAN_controller/mcp2515_driver.o
+ .data          0x00000000        0x0 node1/CAN_controller/mcp2515_driver.o
+ .bss           0x00000000        0x0 node1/CAN_controller/mcp2515_driver.o
  .text.mcp2515_read_status
-                0x00000000       0x1c CAN_controller/mcp2515_driver.o
- .text          0x00000000        0x0 CAN_controller/spi_driver.o
- .data          0x00000000        0x0 CAN_controller/spi_driver.o
- .bss           0x00000000        0x0 CAN_controller/spi_driver.o
- .text          0x00000000        0x0 Multifunc_board/menu.o
- .data          0x00000000        0x0 Multifunc_board/menu.o
- .bss           0x00000000        0x0 Multifunc_board/menu.o
+                0x00000000       0x1c node1/CAN_controller/mcp2515_driver.o
+ .text          0x00000000        0x0 node1/CAN_controller/spi_driver.o
+ .data          0x00000000        0x0 node1/CAN_controller/spi_driver.o
+ .bss           0x00000000        0x0 node1/CAN_controller/spi_driver.o
+ .text          0x00000000        0x0 node1/Multifunc_board/menu.o
+ .data          0x00000000        0x0 node1/Multifunc_board/menu.o
+ .bss           0x00000000        0x0 node1/Multifunc_board/menu.o
  .text.update_arrow
-                0x00000000       0xac Multifunc_board/menu.o
+                0x00000000       0xac node1/Multifunc_board/menu.o
  .text.get_menu_choice
-                0x00000000        0xa Multifunc_board/menu.o
- .text          0x00000000        0x0 Multifunc_board/multifunction.o
- .data          0x00000000        0x0 Multifunc_board/multifunction.o
- .bss           0x00000000        0x0 Multifunc_board/multifunction.o
- .text          0x00000000        0x0 Multifunc_board/oled.o
- .data          0x00000000        0x0 Multifunc_board/oled.o
- .bss           0x00000000        0x0 Multifunc_board/oled.o
+                0x00000000        0xa node1/Multifunc_board/menu.o
+ .text          0x00000000        0x0 node1/Multifunc_board/multifunction.o
+ .data          0x00000000        0x0 node1/Multifunc_board/multifunction.o
+ .bss           0x00000000        0x0 node1/Multifunc_board/multifunction.o
+ .text          0x00000000        0x0 node1/Multifunc_board/oled.o
+ .data          0x00000000        0x0 node1/Multifunc_board/oled.o
+ .bss           0x00000000        0x0 node1/Multifunc_board/oled.o
  .text.OLED_print_arrow
-                0x00000000       0x42 Multifunc_board/oled.o
+                0x00000000       0x42 node1/Multifunc_board/oled.o
  .text.OLED_goto_line
-                0x00000000        0xc Multifunc_board/oled.o
+                0x00000000        0xc node1/Multifunc_board/oled.o
  .progmem.data.font4
-                0x00000000      0x17c Multifunc_board/oled.o
+                0x00000000      0x17c node1/Multifunc_board/oled.o
  .progmem.data.font5
-                0x00000000      0x1db Multifunc_board/oled.o
- .text          0x00000000        0x0 Multifunc_board/user_interface.o
- .data          0x00000000        0x0 Multifunc_board/user_interface.o
- .bss           0x00000000        0x0 Multifunc_board/user_interface.o
+                0x00000000      0x1db node1/Multifunc_board/oled.o
+ .text          0x00000000        0x0 node1/Multifunc_board/user_interface.o
+ .data          0x00000000        0x0 node1/Multifunc_board/user_interface.o
+ .bss           0x00000000        0x0 node1/Multifunc_board/user_interface.o
  .text.to_percent
-                0x00000000       0x38 Multifunc_board/user_interface.o
+                0x00000000       0x38 node1/Multifunc_board/user_interface.o
  .text.joy_get_dir
-                0x00000000      0x17c Multifunc_board/user_interface.o
+                0x00000000      0x17c node1/Multifunc_board/user_interface.o
  .text.get_joy_state
-                0x00000000       0x64 Multifunc_board/user_interface.o
+                0x00000000       0x64 node1/Multifunc_board/user_interface.o
  .text.joy_btn_pressed
-                0x00000000       0x1c Multifunc_board/user_interface.o
+                0x00000000       0x1c node1/Multifunc_board/user_interface.o
  .rodata.str1.1
-                0x00000000       0x41 Multifunc_board/user_interface.o
+                0x00000000       0x41 node1/Multifunc_board/user_interface.o
  .text.joy_print_state
-                0x00000000       0x54 Multifunc_board/user_interface.o
+                0x00000000       0x54 node1/Multifunc_board/user_interface.o
  .text.print_slider_state
-                0x00000000       0x26 Multifunc_board/user_interface.o
- .text          0x00000000        0x0 xmem.o
- .data          0x00000000        0x0 xmem.o
- .bss           0x00000000        0x0 xmem.o
- .text.xmem_write
-                0x00000000        0x8 xmem.o
- .text.xmem_read
-                0x00000000        0x8 xmem.o
- .text          0x00000000        0x0 test.o
- .data          0x00000000        0x0 test.o
- .bss           0x00000000        0x0 test.o
+                0x00000000       0x26 node1/Multifunc_board/user_interface.o
+ .text          0x00000000        0x0 node1/test.o
+ .data          0x00000000        0x0 node1/test.o
+ .bss           0x00000000        0x0 node1/test.o
  .text.pina_test
-                0x00000000       0x1c test.o
+                0x00000000       0x1c node1/test.o
  .text.uart_test
-                0x00000000       0x26 test.o
+                0x00000000       0x26 node1/test.o
  .text.latch_test
-                0x00000000       0x52 test.o
+                0x00000000       0x52 node1/test.o
  .text.SRAM_test
-                0x00000000       0xf6 test.o
+                0x00000000       0xf6 node1/test.o
  .text.NAND_test
-                0x00000000       0x12 test.o
+                0x00000000       0x12 node1/test.o
  .text.test_multifunction
-                0x00000000       0x1c test.o
- .text          0x00000000        0x0 uart.o
- .data          0x00000000        0x0 uart.o
- .bss           0x00000000        0x0 uart.o
+                0x00000000       0x1c node1/test.o
+ .text          0x00000000        0x0 node1/uart.o
+ .data          0x00000000        0x0 node1/uart.o
+ .bss           0x00000000        0x0 node1/uart.o
+ .text          0x00000000        0x0 node1/xmem.o
+ .data          0x00000000        0x0 node1/xmem.o
+ .bss           0x00000000        0x0 node1/xmem.o
+ .text.xmem_write
+                0x00000000        0x8 node1/xmem.o
+ .text.xmem_read
+                0x00000000        0x8 node1/xmem.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -540,16 +540,16 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
-LOAD CAN_controller/can_driver.o
-LOAD CAN_controller/mcp2515_driver.o
-LOAD CAN_controller/spi_driver.o
-LOAD Multifunc_board/menu.o
-LOAD Multifunc_board/multifunction.o
-LOAD Multifunc_board/oled.o
-LOAD Multifunc_board/user_interface.o
-LOAD xmem.o
-LOAD test.o
-LOAD uart.o
+LOAD node1/CAN_controller/can_driver.o
+LOAD node1/CAN_controller/mcp2515_driver.o
+LOAD node1/CAN_controller/spi_driver.o
+LOAD node1/Multifunc_board/menu.o
+LOAD node1/Multifunc_board/multifunction.o
+LOAD node1/Multifunc_board/oled.o
+LOAD node1/Multifunc_board/user_interface.o
+LOAD node1/test.o
+LOAD node1/uart.o
+LOAD node1/xmem.o
 LOAD main.o
 START GROUP
 LOAD c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a
@@ -677,7 +677,7 @@ END GROUP
  *libc.a:*(.progmem.data)
  *(.progmem*)
  .progmem.data.font8
-                0x00000070      0x2f8 Multifunc_board/oled.o
+                0x00000070      0x2f8 node1/Multifunc_board/oled.o
                 0x00000070                font8
                 0x00000368                . = ALIGN (0x2)
  *(.jumptables)
@@ -753,107 +753,107 @@ END GROUP
                 0x000003a6                . = ALIGN (0x2)
  *(.text.*)
  .text.CAN_init
-                0x000003a6       0x28 CAN_controller/can_driver.o
+                0x000003a6       0x28 node1/CAN_controller/can_driver.o
                 0x000003a6                CAN_init
  .text.CAN_transmit
-                0x000003ce       0x94 CAN_controller/can_driver.o
+                0x000003ce       0x94 node1/CAN_controller/can_driver.o
                 0x000003ce                CAN_transmit
  .text.CAN_recieve
-                0x00000462       0x5c CAN_controller/can_driver.o
+                0x00000462       0x5c node1/CAN_controller/can_driver.o
                 0x00000462                CAN_recieve
  .text.mcp2515_reset
-                0x000004be       0x10 CAN_controller/mcp2515_driver.o
+                0x000004be       0x10 node1/CAN_controller/mcp2515_driver.o
                 0x000004be                mcp2515_reset
  .text.mcp2515_read
-                0x000004ce       0x24 CAN_controller/mcp2515_driver.o
+                0x000004ce       0x24 node1/CAN_controller/mcp2515_driver.o
                 0x000004ce                mcp2515_read
  .text.mcp2515_init
-                0x000004f2       0x38 CAN_controller/mcp2515_driver.o
+                0x000004f2       0x38 node1/CAN_controller/mcp2515_driver.o
                 0x000004f2                mcp2515_init
  .text.mcp2515_write
-                0x0000052a       0x28 CAN_controller/mcp2515_driver.o
+                0x0000052a       0x28 node1/CAN_controller/mcp2515_driver.o
                 0x0000052a                mcp2515_write
  .text.mcp2515_request_to_send
-                0x00000552       0x10 CAN_controller/mcp2515_driver.o
+                0x00000552       0x10 node1/CAN_controller/mcp2515_driver.o
                 0x00000552                mcp2515_request_to_send
  .text.mcp2515_bit_modify
-                0x00000562       0xac CAN_controller/mcp2515_driver.o
+                0x00000562       0xac node1/CAN_controller/mcp2515_driver.o
                 0x00000562                mcp2515_bit_modify
  .text.set_SS_low
-                0x0000060e        0x8 CAN_controller/spi_driver.o
+                0x0000060e        0x8 node1/CAN_controller/spi_driver.o
                 0x0000060e                set_SS_low
  .text.set_SS_high
-                0x00000616        0x8 CAN_controller/spi_driver.o
+                0x00000616        0x8 node1/CAN_controller/spi_driver.o
                 0x00000616                set_SS_high
  .text.SPI_init
-                0x0000061e       0x22 CAN_controller/spi_driver.o
+                0x0000061e       0x22 node1/CAN_controller/spi_driver.o
                 0x0000061e                SPI_init
  .text.SPI_send
-                0x00000640        0x8 CAN_controller/spi_driver.o
+                0x00000640        0x8 node1/CAN_controller/spi_driver.o
                 0x00000640                SPI_send
  .text.SPI_read
-                0x00000648        0xa CAN_controller/spi_driver.o
+                0x00000648        0xa node1/CAN_controller/spi_driver.o
                 0x00000648                SPI_read
  .text.menu_init
-                0x00000652       0x6a Multifunc_board/menu.o
+                0x00000652       0x6a node1/Multifunc_board/menu.o
                 0x00000652                menu_init
  .text.multifunction_init
-                0x000006bc       0x88 Multifunc_board/multifunction.o
+                0x000006bc       0x88 node1/Multifunc_board/multifunction.o
                 0x000006bc                multifunction_init
  .text.OLED_write_command
-                0x00000744        0x6 Multifunc_board/oled.o
+                0x00000744        0x6 node1/Multifunc_board/oled.o
                 0x00000744                OLED_write_command
  .text.OLED_init
-                0x0000074a       0x8c Multifunc_board/oled.o
+                0x0000074a       0x8c node1/Multifunc_board/oled.o
                 0x0000074a                OLED_init
  .text.OLED_write_data
-                0x000007d6        0x6 Multifunc_board/oled.o
+                0x000007d6        0x6 node1/Multifunc_board/oled.o
                 0x000007d6                OLED_write_data
  .text.OLED_pos
-                0x000007dc       0x32 Multifunc_board/oled.o
+                0x000007dc       0x32 node1/Multifunc_board/oled.o
                 0x000007dc                OLED_pos
  .text.print_solid_circle
-                0x0000080e       0x36 Multifunc_board/oled.o
+                0x0000080e       0x36 node1/Multifunc_board/oled.o
                 0x0000080e                print_solid_circle
  .text.OLED_clear_line
-                0x00000844       0x24 Multifunc_board/oled.o
+                0x00000844       0x24 node1/Multifunc_board/oled.o
                 0x00000844                OLED_clear_line
  .text.OLED_reset
-                0x00000868       0x2e Multifunc_board/oled.o
+                0x00000868       0x2e node1/Multifunc_board/oled.o
                 0x00000868                OLED_reset
  .text.OLED_print_char
-                0x00000896       0x44 Multifunc_board/oled.o
+                0x00000896       0x44 node1/Multifunc_board/oled.o
                 0x00000896                OLED_print_char
  .text.OLED_print_string
-                0x000008da       0x44 Multifunc_board/oled.o
+                0x000008da       0x44 node1/Multifunc_board/oled.o
                 0x000008da                OLED_print_string
  .text.adc_init
-                0x0000091e       0x58 Multifunc_board/user_interface.o
+                0x0000091e       0x58 node1/Multifunc_board/user_interface.o
                 0x0000091e                adc_init
  .text.adc_read
-                0x00000976       0x1c Multifunc_board/user_interface.o
+                0x00000976       0x1c node1/Multifunc_board/user_interface.o
                 0x00000976                adc_read
  .text.calibrate_joy_stick
-                0x00000992        0xe Multifunc_board/user_interface.o
+                0x00000992        0xe node1/Multifunc_board/user_interface.o
                 0x00000992                calibrate_joy_stick
- .text.xmem_init
-                0x000009a0        0xe xmem.o
-                0x000009a0                xmem_init
  .text.can_test
-                0x000009ae       0x98 test.o
-                0x000009ae                can_test
+                0x000009a0       0x98 node1/test.o
+                0x000009a0                can_test
  .text.SPDR_test
-                0x00000a46       0xc2 test.o
-                0x00000a46                SPDR_test
+                0x00000a38       0xc2 node1/test.o
+                0x00000a38                SPDR_test
  .text.uart_write
-                0x00000b08        0x8 uart.o
-                0x00000b08                uart_write
+                0x00000afa        0x8 node1/uart.o
+                0x00000afa                uart_write
  .text.uart_read
-                0x00000b10        0x8 uart.o
-                0x00000b10                uart_read
+                0x00000b02        0x8 node1/uart.o
+                0x00000b02                uart_read
  .text.uart_init
-                0x00000b18       0x1a uart.o
-                0x00000b18                uart_init
+                0x00000b0a       0x1a node1/uart.o
+                0x00000b0a                uart_init
+ .text.xmem_init
+                0x00000b24        0xe node1/xmem.o
+                0x00000b24                xmem_init
  .text.main     0x00000b32       0x3e main.o
                 0x00000b32                main
  .text.avr-libc
@@ -929,17 +929,17 @@ END GROUP
                 0x00800104                __malloc_margin
  *(.data*)
  .data.arrow_page
-                0x00800106        0x2 Multifunc_board/menu.o
+                0x00800106        0x2 node1/Multifunc_board/menu.o
                 0x00800106                arrow_page
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x00800108        0xc CAN_controller/mcp2515_driver.o
- .rodata        0x00800114       0x82 Multifunc_board/multifunction.o
+ .rodata        0x00800108        0xc node1/CAN_controller/mcp2515_driver.o
+ .rodata        0x00800114       0x82 node1/Multifunc_board/multifunction.o
  *(.rodata*)
  .rodata.str1.1
-                0x00800196       0x5a CAN_controller/mcp2515_driver.o
+                0x00800196       0x5a node1/CAN_controller/mcp2515_driver.o
  .rodata.str1.1
-                0x008001f0      0x135 test.o
+                0x008001f0      0x135 node1/test.o
  .rodata.str1.1
                 0x00800325       0x27 main.o
  *(.gnu.linkonce.r*)
@@ -1007,17 +1007,17 @@ END GROUP
 
 .comment        0x00000000       0x5c
  *(.comment)
- .comment       0x00000000       0x30 CAN_controller/can_driver.o
+ .comment       0x00000000       0x30 node1/CAN_controller/can_driver.o
                                  0x31 (size before relaxing)
- .comment       0x00000030       0x31 CAN_controller/mcp2515_driver.o
- .comment       0x00000030       0x31 CAN_controller/spi_driver.o
- .comment       0x00000030       0x31 Multifunc_board/menu.o
- .comment       0x00000030       0x31 Multifunc_board/multifunction.o
- .comment       0x00000030       0x31 Multifunc_board/oled.o
- .comment       0x00000030       0x31 Multifunc_board/user_interface.o
- .comment       0x00000030       0x31 xmem.o
- .comment       0x00000030       0x31 test.o
- .comment       0x00000030       0x31 uart.o
+ .comment       0x00000030       0x31 node1/CAN_controller/mcp2515_driver.o
+ .comment       0x00000030       0x31 node1/CAN_controller/spi_driver.o
+ .comment       0x00000030       0x31 node1/Multifunc_board/menu.o
+ .comment       0x00000030       0x31 node1/Multifunc_board/multifunction.o
+ .comment       0x00000030       0x31 node1/Multifunc_board/oled.o
+ .comment       0x00000030       0x31 node1/Multifunc_board/user_interface.o
+ .comment       0x00000030       0x31 node1/test.o
+ .comment       0x00000030       0x31 node1/uart.o
+ .comment       0x00000030       0x31 node1/xmem.o
  .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fdevopen.o)
  .comment       0x00000030       0x31 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(iob.o)
@@ -1051,25 +1051,25 @@ END GROUP
 .debug_aranges  0x00000000      0x2b8
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x30 CAN_controller/can_driver.o
+                0x00000000       0x30 node1/CAN_controller/can_driver.o
  .debug_aranges
-                0x00000030       0x50 CAN_controller/mcp2515_driver.o
+                0x00000030       0x50 node1/CAN_controller/mcp2515_driver.o
  .debug_aranges
-                0x00000080       0x40 CAN_controller/spi_driver.o
+                0x00000080       0x40 node1/CAN_controller/spi_driver.o
  .debug_aranges
-                0x000000c0       0x30 Multifunc_board/menu.o
+                0x000000c0       0x30 node1/Multifunc_board/menu.o
  .debug_aranges
-                0x000000f0       0x20 Multifunc_board/multifunction.o
+                0x000000f0       0x20 node1/Multifunc_board/multifunction.o
  .debug_aranges
-                0x00000110       0x70 Multifunc_board/oled.o
+                0x00000110       0x70 node1/Multifunc_board/oled.o
  .debug_aranges
-                0x00000180       0x60 Multifunc_board/user_interface.o
+                0x00000180       0x60 node1/Multifunc_board/user_interface.o
  .debug_aranges
-                0x000001e0       0x30 xmem.o
+                0x000001e0       0x58 node1/test.o
  .debug_aranges
-                0x00000210       0x58 test.o
+                0x00000238       0x30 node1/uart.o
  .debug_aranges
-                0x00000268       0x30 uart.o
+                0x00000268       0x30 node1/xmem.o
  .debug_aranges
                 0x00000298       0x20 main.o
 
@@ -1079,99 +1079,99 @@ END GROUP
 .debug_info     0x00000000     0x289b
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5d0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_info    0x000005d0      0x2e7 CAN_controller/can_driver.o
- .debug_info    0x000008b7      0x472 CAN_controller/mcp2515_driver.o
- .debug_info    0x00000d29      0x117 CAN_controller/spi_driver.o
- .debug_info    0x00000e40      0x2ed Multifunc_board/menu.o
- .debug_info    0x0000112d      0x142 Multifunc_board/multifunction.o
- .debug_info    0x0000126f      0x820 Multifunc_board/oled.o
- .debug_info    0x00001a8f      0x470 Multifunc_board/user_interface.o
- .debug_info    0x00001eff      0x12b xmem.o
- .debug_info    0x0000202a      0x627 test.o
- .debug_info    0x00002651      0x11e uart.o
+ .debug_info    0x000005d0      0x2e7 node1/CAN_controller/can_driver.o
+ .debug_info    0x000008b7      0x472 node1/CAN_controller/mcp2515_driver.o
+ .debug_info    0x00000d29      0x117 node1/CAN_controller/spi_driver.o
+ .debug_info    0x00000e40      0x2ed node1/Multifunc_board/menu.o
+ .debug_info    0x0000112d      0x142 node1/Multifunc_board/multifunction.o
+ .debug_info    0x0000126f      0x820 node1/Multifunc_board/oled.o
+ .debug_info    0x00001a8f      0x470 node1/Multifunc_board/user_interface.o
+ .debug_info    0x00001eff      0x627 node1/test.o
+ .debug_info    0x00002526      0x11e node1/uart.o
+ .debug_info    0x00002644      0x12b node1/xmem.o
  .debug_info    0x0000276f      0x12c main.o
 
 .debug_abbrev   0x00000000     0x131d
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x580 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_abbrev  0x00000580      0x12c CAN_controller/can_driver.o
- .debug_abbrev  0x000006ac      0x179 CAN_controller/mcp2515_driver.o
- .debug_abbrev  0x00000825       0xd9 CAN_controller/spi_driver.o
- .debug_abbrev  0x000008fe      0x183 Multifunc_board/menu.o
- .debug_abbrev  0x00000a81       0xab Multifunc_board/multifunction.o
- .debug_abbrev  0x00000b2c      0x19f Multifunc_board/oled.o
- .debug_abbrev  0x00000ccb      0x21c Multifunc_board/user_interface.o
- .debug_abbrev  0x00000ee7       0xd1 xmem.o
- .debug_abbrev  0x00000fb8      0x20b test.o
- .debug_abbrev  0x000011c3       0xca uart.o
+ .debug_abbrev  0x00000580      0x12c node1/CAN_controller/can_driver.o
+ .debug_abbrev  0x000006ac      0x179 node1/CAN_controller/mcp2515_driver.o
+ .debug_abbrev  0x00000825       0xd9 node1/CAN_controller/spi_driver.o
+ .debug_abbrev  0x000008fe      0x183 node1/Multifunc_board/menu.o
+ .debug_abbrev  0x00000a81       0xab node1/Multifunc_board/multifunction.o
+ .debug_abbrev  0x00000b2c      0x19f node1/Multifunc_board/oled.o
+ .debug_abbrev  0x00000ccb      0x21c node1/Multifunc_board/user_interface.o
+ .debug_abbrev  0x00000ee7      0x20b node1/test.o
+ .debug_abbrev  0x000010f2       0xca node1/uart.o
+ .debug_abbrev  0x000011bc       0xd1 node1/xmem.o
  .debug_abbrev  0x0000128d       0x90 main.o
 
-.debug_line     0x00000000     0x16a0
+.debug_line     0x00000000     0x16fb
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x140 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_line    0x00000140      0x192 CAN_controller/can_driver.o
- .debug_line    0x000002d2      0x263 CAN_controller/mcp2515_driver.o
- .debug_line    0x00000535      0x146 CAN_controller/spi_driver.o
- .debug_line    0x0000067b      0x153 Multifunc_board/menu.o
- .debug_line    0x000007ce      0x10a Multifunc_board/multifunction.o
- .debug_line    0x000008d8      0x386 Multifunc_board/oled.o
- .debug_line    0x00000c5e      0x32f Multifunc_board/user_interface.o
- .debug_line    0x00000f8d       0xd9 xmem.o
- .debug_line    0x00001066      0x413 test.o
- .debug_line    0x00001479       0xff uart.o
- .debug_line    0x00001578      0x128 main.o
+ .debug_line    0x00000140      0x198 node1/CAN_controller/can_driver.o
+ .debug_line    0x000002d8      0x269 node1/CAN_controller/mcp2515_driver.o
+ .debug_line    0x00000541      0x14c node1/CAN_controller/spi_driver.o
+ .debug_line    0x0000068d      0x159 node1/Multifunc_board/menu.o
+ .debug_line    0x000007e6      0x110 node1/Multifunc_board/multifunction.o
+ .debug_line    0x000008f6      0x392 node1/Multifunc_board/oled.o
+ .debug_line    0x00000c88      0x335 node1/Multifunc_board/user_interface.o
+ .debug_line    0x00000fbd      0x41f node1/test.o
+ .debug_line    0x000013dc      0x103 node1/uart.o
+ .debug_line    0x000014df       0xdd node1/xmem.o
+ .debug_line    0x000015bc      0x13f main.o
 
 .debug_frame    0x00000000      0x70c
  *(.debug_frame)
- .debug_frame   0x00000000       0x84 CAN_controller/can_driver.o
- .debug_frame   0x00000084       0xd0 CAN_controller/mcp2515_driver.o
- .debug_frame   0x00000154       0x64 CAN_controller/spi_driver.o
- .debug_frame   0x000001b8       0x80 Multifunc_board/menu.o
- .debug_frame   0x00000238       0x38 Multifunc_board/multifunction.o
- .debug_frame   0x00000270      0x11c Multifunc_board/oled.o
- .debug_frame   0x0000038c      0x128 Multifunc_board/user_interface.o
- .debug_frame   0x000004b4       0x44 xmem.o
- .debug_frame   0x000004f8      0x19c test.o
- .debug_frame   0x00000694       0x44 uart.o
+ .debug_frame   0x00000000       0x84 node1/CAN_controller/can_driver.o
+ .debug_frame   0x00000084       0xd0 node1/CAN_controller/mcp2515_driver.o
+ .debug_frame   0x00000154       0x64 node1/CAN_controller/spi_driver.o
+ .debug_frame   0x000001b8       0x80 node1/Multifunc_board/menu.o
+ .debug_frame   0x00000238       0x38 node1/Multifunc_board/multifunction.o
+ .debug_frame   0x00000270      0x11c node1/Multifunc_board/oled.o
+ .debug_frame   0x0000038c      0x128 node1/Multifunc_board/user_interface.o
+ .debug_frame   0x000004b4      0x19c node1/test.o
+ .debug_frame   0x00000650       0x44 node1/uart.o
+ .debug_frame   0x00000694       0x44 node1/xmem.o
  .debug_frame   0x000006d8       0x34 main.o
 
-.debug_str      0x00000000      0xa54
+.debug_str      0x00000000      0xa00
  *(.debug_str)
  .debug_str     0x00000000      0x1f6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega162/avr5/crtatmega162.o
- .debug_str     0x000001f6      0x1e3 CAN_controller/can_driver.o
-                                0x224 (size before relaxing)
- .debug_str     0x000003d9       0xb2 CAN_controller/mcp2515_driver.o
-                                0x27c (size before relaxing)
- .debug_str     0x0000048b       0x25 CAN_controller/spi_driver.o
-                                0x1ac (size before relaxing)
- .debug_str     0x000004b0      0x112 Multifunc_board/menu.o
-                                0x277 (size before relaxing)
- .debug_str     0x000005c2       0x5d Multifunc_board/multifunction.o
-                                0x1e3 (size before relaxing)
- .debug_str     0x0000061f       0xf0 Multifunc_board/oled.o
-                                0x27c (size before relaxing)
- .debug_str     0x0000070f      0x19f Multifunc_board/user_interface.o
-                                0x33d (size before relaxing)
- .debug_str     0x000008ae       0x40 xmem.o
-                                0x1b4 (size before relaxing)
- .debug_str     0x000008ee      0x134 test.o
-                                0x345 (size before relaxing)
- .debug_str     0x00000a22       0x21 uart.o
-                                0x19d (size before relaxing)
- .debug_str     0x00000a43       0x11 main.o
+ .debug_str     0x000001f6      0x1e9 node1/CAN_controller/can_driver.o
+                                0x22a (size before relaxing)
+ .debug_str     0x000003df       0xb8 node1/CAN_controller/mcp2515_driver.o
+                                0x282 (size before relaxing)
+ .debug_str     0x00000497       0x2b node1/CAN_controller/spi_driver.o
+                                0x1b2 (size before relaxing)
+ .debug_str     0x000004c2      0x118 node1/Multifunc_board/menu.o
+                                0x27d (size before relaxing)
+ .debug_str     0x000005da       0x63 node1/Multifunc_board/multifunction.o
+                                0x1e9 (size before relaxing)
+ .debug_str     0x0000063d       0xb3 node1/Multifunc_board/oled.o
+                                0x275 (size before relaxing)
+ .debug_str     0x000006f0      0x15e node1/Multifunc_board/user_interface.o
+                                0x332 (size before relaxing)
+ .debug_str     0x0000084e      0x138 node1/test.o
+                                0x349 (size before relaxing)
+ .debug_str     0x00000986       0x25 node1/uart.o
+                                0x194 (size before relaxing)
+ .debug_str     0x000009ab       0x44 node1/xmem.o
+                                0x1a7 (size before relaxing)
+ .debug_str     0x000009ef       0x11 main.o
                                 0x1a8 (size before relaxing)
 
 .debug_loc      0x00000000     0x13f9
  *(.debug_loc)
- .debug_loc     0x00000000      0x145 CAN_controller/can_driver.o
- .debug_loc     0x00000145      0x30d CAN_controller/mcp2515_driver.o
- .debug_loc     0x00000452      0x148 Multifunc_board/menu.o
- .debug_loc     0x0000059a       0x48 Multifunc_board/multifunction.o
- .debug_loc     0x000005e2      0x396 Multifunc_board/oled.o
- .debug_loc     0x00000978      0x3d2 Multifunc_board/user_interface.o
- .debug_loc     0x00000d4a       0x34 xmem.o
- .debug_loc     0x00000d7e      0x5ff test.o
- .debug_loc     0x0000137d       0x26 uart.o
+ .debug_loc     0x00000000      0x145 node1/CAN_controller/can_driver.o
+ .debug_loc     0x00000145      0x30d node1/CAN_controller/mcp2515_driver.o
+ .debug_loc     0x00000452      0x148 node1/Multifunc_board/menu.o
+ .debug_loc     0x0000059a       0x48 node1/Multifunc_board/multifunction.o
+ .debug_loc     0x000005e2      0x396 node1/Multifunc_board/oled.o
+ .debug_loc     0x00000978      0x3d2 node1/Multifunc_board/user_interface.o
+ .debug_loc     0x00000d4a      0x5ff node1/test.o
+ .debug_loc     0x00001349       0x26 node1/uart.o
+ .debug_loc     0x0000136f       0x34 node1/xmem.o
  .debug_loc     0x000013a3       0x56 main.o
 
 .debug_macinfo
@@ -1194,16 +1194,16 @@ END GROUP
 
 .debug_ranges   0x00000000      0x268
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x20 CAN_controller/can_driver.o
- .debug_ranges  0x00000020       0x40 CAN_controller/mcp2515_driver.o
- .debug_ranges  0x00000060       0x30 CAN_controller/spi_driver.o
- .debug_ranges  0x00000090       0x38 Multifunc_board/menu.o
- .debug_ranges  0x000000c8       0x10 Multifunc_board/multifunction.o
- .debug_ranges  0x000000d8       0x60 Multifunc_board/oled.o
- .debug_ranges  0x00000138       0x68 Multifunc_board/user_interface.o
- .debug_ranges  0x000001a0       0x20 xmem.o
- .debug_ranges  0x000001c0       0x78 test.o
- .debug_ranges  0x00000238       0x20 uart.o
+ .debug_ranges  0x00000000       0x20 node1/CAN_controller/can_driver.o
+ .debug_ranges  0x00000020       0x40 node1/CAN_controller/mcp2515_driver.o
+ .debug_ranges  0x00000060       0x30 node1/CAN_controller/spi_driver.o
+ .debug_ranges  0x00000090       0x38 node1/Multifunc_board/menu.o
+ .debug_ranges  0x000000c8       0x10 node1/Multifunc_board/multifunction.o
+ .debug_ranges  0x000000d8       0x60 node1/Multifunc_board/oled.o
+ .debug_ranges  0x00000138       0x68 node1/Multifunc_board/user_interface.o
+ .debug_ranges  0x000001a0       0x78 node1/test.o
+ .debug_ranges  0x00000218       0x20 node1/uart.o
+ .debug_ranges  0x00000238       0x20 node1/xmem.o
  .debug_ranges  0x00000258       0x10 main.o
 
 .debug_macro

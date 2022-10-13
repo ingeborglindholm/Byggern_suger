@@ -144,67 +144,67 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CAN_controller\can_driver.c">
+    <Compile Include="node1\CAN_controller\can_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_controller\can_driver.h">
+    <Compile Include="node1\CAN_controller\can_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_controller\mcp2515_driver.c">
+    <Compile Include="node1\CAN_controller\mcp2515_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_controller\mcp2515_driver.h">
+    <Compile Include="node1\CAN_controller\mcp2515_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_controller\spi_driver.c">
+    <Compile Include="node1\CAN_controller\spi_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="CAN_controller\spi_driver.h">
+    <Compile Include="node1\CAN_controller\spi_driver.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="fonts.h">
+    <Compile Include="node1\fonts.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\menu.c">
+    <Compile Include="node1\Multifunc_board\menu.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\menu.h">
+    <Compile Include="node1\Multifunc_board\menu.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\multifunction.c">
+    <Compile Include="node1\Multifunc_board\multifunction.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\multifunction.h">
+    <Compile Include="node1\Multifunc_board\multifunction.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\oled.c">
+    <Compile Include="node1\Multifunc_board\oled.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\oled.h">
+    <Compile Include="node1\Multifunc_board\oled.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\user_interface.c">
+    <Compile Include="node1\Multifunc_board\user_interface.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Multifunc_board\user_interface.h">
+    <Compile Include="node1\Multifunc_board\user_interface.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="xmem.c">
+    <Compile Include="node1\test.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="xmem.h">
+    <Compile Include="node1\test.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="test.c">
+    <Compile Include="node1\uart.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="test.h">
+    <Compile Include="node1\uart.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uart.h">
+    <Compile Include="node1\xmem.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="uart.c">
+    <Compile Include="node1\xmem.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -212,8 +212,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CAN_controller\" />
-    <Folder Include="Multifunc_board" />
+    <Folder Include="node1\CAN_controller\" />
+    <Folder Include="node1\Multifunc_board\" />
+    <Folder Include="node2" />
+    <Folder Include="node1" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

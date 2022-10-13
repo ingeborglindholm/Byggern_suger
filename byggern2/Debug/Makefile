@@ -33,22 +33,24 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../CAN_controller/ \
-../Multifunc_board
+../node1/CAN_controller/ \
+../node1/Multifunc_board/ \
+../node2 \
+../node1
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../CAN_controller/can_driver.c \
-../CAN_controller/mcp2515_driver.c \
-../CAN_controller/spi_driver.c \
-../Multifunc_board/menu.c \
-../Multifunc_board/multifunction.c \
-../Multifunc_board/oled.c \
-../Multifunc_board/user_interface.c \
-../xmem.c \
-../test.c \
-../uart.c \
+../node1/CAN_controller/can_driver.c \
+../node1/CAN_controller/mcp2515_driver.c \
+../node1/CAN_controller/spi_driver.c \
+../node1/Multifunc_board/menu.c \
+../node1/Multifunc_board/multifunction.c \
+../node1/Multifunc_board/oled.c \
+../node1/Multifunc_board/user_interface.c \
+../node1/test.c \
+../node1/uart.c \
+../node1/xmem.c \
 ../main.c
 
 
@@ -59,55 +61,55 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-CAN_controller/can_driver.o \
-CAN_controller/mcp2515_driver.o \
-CAN_controller/spi_driver.o \
-Multifunc_board/menu.o \
-Multifunc_board/multifunction.o \
-Multifunc_board/oled.o \
-Multifunc_board/user_interface.o \
-xmem.o \
-test.o \
-uart.o \
+node1/CAN_controller/can_driver.o \
+node1/CAN_controller/mcp2515_driver.o \
+node1/CAN_controller/spi_driver.o \
+node1/Multifunc_board/menu.o \
+node1/Multifunc_board/multifunction.o \
+node1/Multifunc_board/oled.o \
+node1/Multifunc_board/user_interface.o \
+node1/test.o \
+node1/uart.o \
+node1/xmem.o \
 main.o
 
 OBJS_AS_ARGS +=  \
-CAN_controller/can_driver.o \
-CAN_controller/mcp2515_driver.o \
-CAN_controller/spi_driver.o \
-Multifunc_board/menu.o \
-Multifunc_board/multifunction.o \
-Multifunc_board/oled.o \
-Multifunc_board/user_interface.o \
-xmem.o \
-test.o \
-uart.o \
+node1/CAN_controller/can_driver.o \
+node1/CAN_controller/mcp2515_driver.o \
+node1/CAN_controller/spi_driver.o \
+node1/Multifunc_board/menu.o \
+node1/Multifunc_board/multifunction.o \
+node1/Multifunc_board/oled.o \
+node1/Multifunc_board/user_interface.o \
+node1/test.o \
+node1/uart.o \
+node1/xmem.o \
 main.o
 
 C_DEPS +=  \
-CAN_controller/can_driver.d \
-CAN_controller/mcp2515_driver.d \
-CAN_controller/spi_driver.d \
-Multifunc_board/menu.d \
-Multifunc_board/multifunction.d \
-Multifunc_board/oled.d \
-Multifunc_board/user_interface.d \
-xmem.d \
-test.d \
-uart.d \
+node1/CAN_controller/can_driver.d \
+node1/CAN_controller/mcp2515_driver.d \
+node1/CAN_controller/spi_driver.d \
+node1/Multifunc_board/menu.d \
+node1/Multifunc_board/multifunction.d \
+node1/Multifunc_board/oled.d \
+node1/Multifunc_board/user_interface.d \
+node1/test.d \
+node1/uart.d \
+node1/xmem.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
-CAN_controller/can_driver.d \
-CAN_controller/mcp2515_driver.d \
-CAN_controller/spi_driver.d \
-Multifunc_board/menu.d \
-Multifunc_board/multifunction.d \
-Multifunc_board/oled.d \
-Multifunc_board/user_interface.d \
-xmem.d \
-test.d \
-uart.d \
+node1/CAN_controller/can_driver.d \
+node1/CAN_controller/mcp2515_driver.d \
+node1/CAN_controller/spi_driver.d \
+node1/Multifunc_board/menu.d \
+node1/Multifunc_board/multifunction.d \
+node1/Multifunc_board/oled.d \
+node1/Multifunc_board/user_interface.d \
+node1/test.d \
+node1/uart.d \
+node1/xmem.d \
 main.d
 
 OUTPUT_FILE_PATH +=byggern2.elf
@@ -124,70 +126,70 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-CAN_controller/can_driver.o: ../CAN_controller/can_driver.c
+node1/CAN_controller/can_driver.o: ../node1/CAN_controller/can_driver.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-CAN_controller/mcp2515_driver.o: ../CAN_controller/mcp2515_driver.c
+node1/CAN_controller/mcp2515_driver.o: ../node1/CAN_controller/mcp2515_driver.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-CAN_controller/spi_driver.o: ../CAN_controller/spi_driver.c
+node1/CAN_controller/spi_driver.o: ../node1/CAN_controller/spi_driver.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-Multifunc_board/menu.o: ../Multifunc_board/menu.c
+node1/Multifunc_board/menu.o: ../node1/Multifunc_board/menu.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-Multifunc_board/multifunction.o: ../Multifunc_board/multifunction.c
+node1/Multifunc_board/multifunction.o: ../node1/Multifunc_board/multifunction.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-Multifunc_board/oled.o: ../Multifunc_board/oled.c
+node1/Multifunc_board/oled.o: ../node1/Multifunc_board/oled.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-Multifunc_board/user_interface.o: ../Multifunc_board/user_interface.c
+node1/Multifunc_board/user_interface.o: ../node1/Multifunc_board/user_interface.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./xmem.o: .././xmem.c
+node1/test.o: ../node1/test.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./test.o: .././test.c
+node1/uart.o: ../node1/uart.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-./uart.o: .././uart.c
+node1/xmem.o: ../node1/xmem.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega162 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega162" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

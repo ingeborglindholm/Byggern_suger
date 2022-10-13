@@ -2,25 +2,25 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-CAN_controller\can_driver.c
+node1\CAN_controller\can_driver.c
 
-CAN_controller\mcp2515_driver.c
+node1\CAN_controller\mcp2515_driver.c
 
-CAN_controller\spi_driver.c
+node1\CAN_controller\spi_driver.c
 
-Multifunc_board\menu.c
+node1\Multifunc_board\menu.c
 
-Multifunc_board\multifunction.c
+node1\Multifunc_board\multifunction.c
 
-Multifunc_board\oled.c
+node1\Multifunc_board\oled.c
 
-Multifunc_board\user_interface.c
+node1\Multifunc_board\user_interface.c
 
-xmem.c
+node1\test.c
 
-test.c
+node1\uart.c
 
-uart.c
+node1\xmem.c
 
 main.c
 

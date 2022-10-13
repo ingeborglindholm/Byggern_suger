@@ -13,17 +13,19 @@ main.d main.o: .././main.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././uart.h .././test.h \
+ .././node1/uart.h .././node1/test.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././Multifunc_board/multifunction.h \
- .././Multifunc_board/user_interface.h .././Multifunc_board/../xmem.h \
+ .././node1/Multifunc_board/multifunction.h \
+ .././node1/Multifunc_board/user_interface.h \
+ .././node1/Multifunc_board/../xmem.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- .././Multifunc_board/oled.h \
+ .././node1/Multifunc_board/oled.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- .././Multifunc_board/menu.h .././CAN_controller/can_driver.h \
- .././CAN_controller/mcp2515_driver.h .././CAN_controller/spi_driver.h
+ .././node1/Multifunc_board/menu.h .././node1/CAN_controller/can_driver.h \
+ .././node1/CAN_controller/mcp2515_driver.h \
+ .././node1/CAN_controller/spi_driver.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -53,9 +55,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-.././uart.h:
+.././node1/uart.h:
 
-.././test.h:
+.././node1/test.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
@@ -63,22 +65,22 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././Multifunc_board/multifunction.h:
+.././node1/Multifunc_board/multifunction.h:
 
-.././Multifunc_board/user_interface.h:
+.././node1/Multifunc_board/user_interface.h:
 
-.././Multifunc_board/../xmem.h:
+.././node1/Multifunc_board/../xmem.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-.././Multifunc_board/oled.h:
+.././node1/Multifunc_board/oled.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-.././Multifunc_board/menu.h:
+.././node1/Multifunc_board/menu.h:
 
-.././CAN_controller/can_driver.h:
+.././node1/CAN_controller/can_driver.h:
 
-.././CAN_controller/mcp2515_driver.h:
+.././node1/CAN_controller/mcp2515_driver.h:
 
-.././CAN_controller/spi_driver.h:
+.././node1/CAN_controller/spi_driver.h:
