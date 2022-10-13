@@ -1,6 +1,8 @@
-CAN_controller/can_driver.d CAN_controller/can_driver.o: \
- ../CAN_controller/can_driver.c ../CAN_controller/can_driver.h \
- ../CAN_controller/mcp2515_driver.h ../CAN_controller/spi_driver.h \
+node1/CAN_controller/can_driver.d node1/CAN_controller/can_driver.o: \
+ ../node1/CAN_controller/can_driver.c \
+ ../node1/CAN_controller/can_driver.h \
+ ../node1/CAN_controller/mcp2515_driver.h \
+ ../node1/CAN_controller/spi_driver.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -14,11 +16,11 @@ CAN_controller/can_driver.d CAN_controller/can_driver.o: \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h
 
-../CAN_controller/can_driver.h:
+../node1/CAN_controller/can_driver.h:
 
-../CAN_controller/mcp2515_driver.h:
+../node1/CAN_controller/mcp2515_driver.h:
 
-../CAN_controller/spi_driver.h:
+../node1/CAN_controller/spi_driver.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 

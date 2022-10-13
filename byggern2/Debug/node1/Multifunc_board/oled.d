@@ -1,5 +1,5 @@
-Multifunc_board/menu.d Multifunc_board/menu.o: ../Multifunc_board/menu.c \
- ../Multifunc_board/menu.h ../Multifunc_board/oled.h \
+node1/Multifunc_board/oled.d node1/Multifunc_board/oled.o: \
+ ../node1/Multifunc_board/oled.c ../node1/Multifunc_board/oled.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -15,14 +15,12 @@ Multifunc_board/menu.d Multifunc_board/menu.o: ../Multifunc_board/menu.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
- ../Multifunc_board/../xmem.h \
+ ../node1/Multifunc_board/../xmem.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
- ../Multifunc_board/../uart.h ../Multifunc_board/user_interface.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ ../node1/Multifunc_board/../uart.h ../node1/Multifunc_board/../fonts.h \
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h
 
-../Multifunc_board/menu.h:
-
-../Multifunc_board/oled.h:
+../node1/Multifunc_board/oled.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -54,12 +52,12 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h:
 
-../Multifunc_board/../xmem.h:
+../node1/Multifunc_board/../xmem.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
-../Multifunc_board/../uart.h:
+../node1/Multifunc_board/../uart.h:
 
-../Multifunc_board/user_interface.h:
+../node1/Multifunc_board/../fonts.h:
 
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:

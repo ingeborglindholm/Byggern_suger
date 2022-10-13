@@ -9,11 +9,11 @@
 #include <avr/io.h>
 #include <stdio.h>
 
-#include "uart.h"
-#include "test.h"
-#include "xmem.h"
-#include "Multifunc_board/multifunction.h"
-#include "CAN_controller/can_driver.h"
+#include "node1/uart.h"
+#include "node1/test.h"
+#include "node1/xmem.h"
+#include "node1/Multifunc_board/multifunction.h"
+#include "node1/CAN_controller/can_driver.h"
 
 
 int main(void){
