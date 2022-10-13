@@ -25,12 +25,6 @@ int main(void){
 	can_test();
 	
 	
-	SPDR_test();
-	
-	
-	printf("\r\n\n\nSlutt test: \n\r");		// \r gjør at man i putty begynner på neste linje (tabber ut linjen)
-	
-	
 /*
 	
 	while (1){
